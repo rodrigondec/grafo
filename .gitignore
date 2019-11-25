@@ -1,0 +1,14 @@
+config.json
+.vscode
+__pycache__
+*.pyc
+
+.env
+
+venv/
+env/
+.idea/
+
+coverage.xml
+
+.coverage
