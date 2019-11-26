@@ -1,4 +1,4 @@
-from db import CachedModel
+from models.db import CachedModel
 
 
 class Materia(CachedModel):
