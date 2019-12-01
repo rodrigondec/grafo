@@ -4,6 +4,7 @@ from models.horario import Horario
 from models.materia import Materia
 from models.professor import Professor
 from models.turma import Turma
+from grafo.vertice import VerticeDados
 
 
 class DataParser:
@@ -16,12 +17,6 @@ class DataParser:
     def __init__(self, file_path):
         self.name = file_path
         self.file = pandas.ExcelFile(file_path)
-
-        self.parse_dados()
-        self.parse_configuracoes()
-        self.parse_preferencias()
-        self.parse_restricao()
-        self.parse_restricoes_turma()
 
     def get_data_frame(self, sheet_options):
         return self.file.parse(sheet_options.get('name'), names=sheet_options.get('columns'))
@@ -36,7 +31,8 @@ class DataParser:
             professor = Professor(serie.get('professor'))
             quantidade_aulas = serie.get('quantidade_aulas')
 
-            #TODO link data
+            for aula in range(quantidade_aulas):
+                VerticeDados(f'{professor} {turma} {materia}', professor, turma, materia)
 
     def parse_configuracoes(self):
         df = self.get_data_frame(self.CONFIGURACOES)
