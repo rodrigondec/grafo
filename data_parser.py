@@ -32,7 +32,7 @@ class DataParser:
             quantidade_aulas = serie.get('quantidade_aulas')
 
             for aula in range(quantidade_aulas):
-                VerticeDados(f'{professor} {turma} {materia}', professor, turma, materia)
+                VerticeDados(professor, turma, materia)
 
     def parse_configuracoes(self):
         df = self.get_data_frame(self.CONFIGURACOES)
