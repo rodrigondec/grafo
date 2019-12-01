@@ -1,6 +1,6 @@
-from models.db import CachedModel
+from db import UniqueCachedModel
 
 
-class Horario(CachedModel):
+class Horario(UniqueCachedModel):
     def __init__(self, value):
         self.value = value
