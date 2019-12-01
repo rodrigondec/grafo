@@ -40,6 +40,8 @@ class DataParser:
         for timedelta in df.get('horario_inicio'):
             Horario(timedelta)
 
+        Horario.popular_dias()
+
     def parse_restricao(self):
         df = self.get_data_frame(self.RESTRICAO)
 
