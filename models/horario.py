@@ -1,18 +1,20 @@
 from db import UniqueCachedModel, CachedModel
 
 
-class Horario(CachedModel):
+class Horario(UniqueCachedModel):
     dias = [
-        'segunda', 'terça', 'quarta', 'quinta', 'sexta'
+        'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'
     ]
 
-    def __init__(self, hora, dia):
+    def __init__(self, identificador, dia, hora):
+        self.cor = list(self.instances.values()).index(self)
+        self.identificador = identificador
         self.hora = hora
         self.dia = dia
 
-    @property
-    def cor(self):
-        return self.index
+    @staticmethod
+    def construir_identificador(dia, hora):
+        return f'{dia} {hora}'
 
 
 class Hora(UniqueCachedModel):
@@ -27,4 +29,4 @@ def popular_horarios():
 
     for dia in Horario.dias:
         for hora in Hora.instances.values():
-            Horario(hora, dia)
+            Horario(Horario.construir_identificador(dia, hora), dia, hora)
