@@ -1,6 +1,6 @@
 import pandas
 
-from models.horario import Hora, popular_horarios
+from models.horario import Hora, popular_horarios, Horario
 from models.materia import Materia
 from models.professor import Professor
 from models.turma import Turma
@@ -10,9 +10,9 @@ from grafo.vertice import VerticeDados
 class DataParser:
     DADOS = {'name': 'Dados', 'columns': ['materia', 'turma', 'professor', 'quantidade_aulas']}
     CONFIGURACOES = {'name': 'Configuracoes', 'columns': ['horario_inicio']}
-    RESTRICAO = {'name': 'Restricao', 'columns': ['professor', 'horario', 'dia_semana']}
-    RESTRICOES_TURMA = {'name': 'Restricoes Turma', 'columns': ['turma', 'horario', 'dia_semana']}
-    PREFERENCIAS = {'name': 'Preferencias', 'columns': ['professor', 'horario', 'dia_semana']}
+    RESTRICOES_PROFESSOR = {'name': 'Restricao', 'columns': ['professor', 'hora', 'dia_semana']}
+    RESTRICOES_TURMA = {'name': 'Restricoes Turma', 'columns': ['turma', 'hora', 'dia_semana']}
+    PREFERENCIAS = {'name': 'Preferencias', 'columns': ['professor', 'hora', 'dia_semana']}
 
     def __init__(self, file_path):
         self.name = file_path
@@ -42,16 +42,16 @@ class DataParser:
 
         popular_horarios()
 
-    def parse_restricao(self):
-        df = self.get_data_frame(self.RESTRICAO)
+    def parse_restricoes_professor(self):
+        df = self.get_data_frame(self.RESTRICOES_PROFESSOR)
 
         for i in range(len(df)):
             serie = df.iloc[i, :]
             professor = Professor(serie.get('professor'))
-            horario = serie.get('horario')
-            dia_semana = serie.get('dia_semana')
+            hora = Hora(serie.get('hora'))
+            dia = serie.get('dia_semana')
 
-            # TODO link data
+            professor.add_restricao(Horario.get(Horario.construir_identificador(dia, hora)))
 
     def parse_restricoes_turma(self):
         df = self.get_data_frame(self.RESTRICOES_TURMA)
@@ -59,21 +59,21 @@ class DataParser:
         for i in range(len(df)):
             serie = df.iloc[i, :]
             turma = Turma(serie.get('turma'))
-            horario = serie.get('horario')
-            dia_semana = serie.get('dia_semana')
+            hora = Hora(serie.get('hora'))
+            dia = serie.get('dia_semana')
 
-            # TODO link data
+            turma.add_restricao(Horario.get(Horario.construir_identificador(dia, hora)))
 
     def parse_preferencias(self):
-        df = self.get_data_frame(self.RESTRICAO)
+        df = self.get_data_frame(self.PREFERENCIAS)
 
         for i in range(len(df)):
             serie = df.iloc[i, :]
             professor = Professor(serie.get('professor'))
-            horario = serie.get('horario')
-            dia_semana = serie.get('dia_semana')
+            hora = Hora(serie.get('hora'))
+            dia = serie.get('dia_semana')
 
-            # TODO link data
+            professor.add_preferencia(Horario.get(Horario.construir_identificador(dia, hora)))
 
 
 if __name__ == "__main__":
