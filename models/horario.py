@@ -1,24 +1,30 @@
-from db import UniqueCachedModel
+from db import UniqueCachedModel, CachedModel
 
 
-class Horario(UniqueCachedModel):
-    dias = {
-        'dia_1': [],
-        'dia_2': [],
-        'dia_3': [],
-        'dia_4': [],
-        'dia_5': [],
-    }
+class Horario(CachedModel):
+    dias = [
+        'segunda', 'terça', 'quarta', 'quinta', 'sexta'
+    ]
 
+    def __init__(self, hora, dia):
+        self.hora = hora
+        self.dia = dia
+
+    @property
+    def cor(self):
+        return self.index
+
+
+class Hora(UniqueCachedModel):
     def __init__(self, value):
         self.value = value
 
-    @classmethod
-    def popular_dias(cls):
-        aulas_por_dia = len(cls.instances.values())
-        if aulas_por_dia == 0:
-            raise ValueError('Classe horário não tem nenhum horário para popular os dias')
 
-        for index, key in enumerate(cls.dias.keys()):
-            for cor in range(index*aulas_por_dia, (index+1)*aulas_por_dia):
-                cls.dias[key].append(cor)
+def popular_horarios():
+    aulas_por_dia = len(Hora.instances.values())
+    if aulas_por_dia == 0:
+        raise ValueError('Classe horário não tem nenhum horário para popular os dias')
+
+    for dia in Horario.dias:
+        for hora in Hora.instances.values():
+            Horario(hora, dia)

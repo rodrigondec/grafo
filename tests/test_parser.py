@@ -4,7 +4,7 @@ from data_parser import DataParser
 from models.professor import Professor
 from models.turma import Turma
 from models.materia import Materia
-from models.horario import Horario
+from models.horario import Hora, Horario
 from grafo.vertice import VerticeDados
 
 
@@ -13,7 +13,7 @@ class DataParserTestCase(TestCase):
         Professor._instances = {}
         Turma._instances = {}
         Materia._instances = {}
-        Horario._instances = {}
+        Hora._instances = {}
         VerticeDados._instances = []
 
     def test_parse_dados(self):
@@ -73,30 +73,18 @@ class DataParserTestCase(TestCase):
             self.assertEqual(lista_vertices, instance.vertices)
 
     def test_configuracoes(self):
-        self.assertEqual(len(Horario.instances.values()), 0)
-        self.assertEqual(len(Horario.dias['dia_1']), 0)
-        self.assertEqual(len(Horario.dias['dia_2']), 0)
-        self.assertEqual(len(Horario.dias['dia_3']), 0)
-        self.assertEqual(len(Horario.dias['dia_4']), 0)
-        self.assertEqual(len(Horario.dias['dia_5']), 0)
+        self.assertEqual(len(Hora.instances.values()), 0)
+        self.assertEqual(len(Horario.instances), 0)
 
         dt = DataParser("data/Escola_A.xlsx")
         dt.parse_configuracoes()
 
-        self.assertEqual(len(Horario.instances.values()), 6)
+        self.assertEqual(len(Hora.instances.values()), 6)
+        self.assertEqual(len(Horario.instances), 30)
 
-        self.assertEqual(len(Horario.dias['dia_1']), 6)
-        self.assertEqual(Horario.dias['dia_1'], [0, 1, 2, 3, 4, 5])
+        lista_cores = [horario.cor for horario in Horario.instances]
 
-        self.assertEqual(len(Horario.dias['dia_2']), 6)
-        self.assertEqual(Horario.dias['dia_2'], [6, 7, 8, 9, 10, 11])
+        for cor in range(30):
+            self.assertIn(cor, lista_cores)
 
-        self.assertEqual(len(Horario.dias['dia_3']), 6)
-        self.assertEqual(Horario.dias['dia_3'], [12, 13, 14, 15, 16, 17])
-
-        self.assertEqual(len(Horario.dias['dia_4']), 6)
-        self.assertEqual(Horario.dias['dia_4'], [18, 19, 20, 21, 22, 23])
-
-        self.assertEqual(len(Horario.dias['dia_5']), 6)
-        self.assertEqual(Horario.dias['dia_5'], [24, 25, 26, 27, 28, 29])
 

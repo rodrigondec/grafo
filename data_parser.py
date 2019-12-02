@@ -1,6 +1,6 @@
 import pandas
 
-from models.horario import Horario
+from models.horario import Hora, popular_horarios
 from models.materia import Materia
 from models.professor import Professor
 from models.turma import Turma
@@ -38,9 +38,9 @@ class DataParser:
         df = self.get_data_frame(self.CONFIGURACOES)
 
         for timedelta in df.get('horario_inicio'):
-            Horario(timedelta)
+            Hora(timedelta)
 
-        Horario.popular_dias()
+        popular_horarios()
 
     def parse_restricao(self):
         df = self.get_data_frame(self.RESTRICAO)
