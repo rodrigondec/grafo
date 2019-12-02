@@ -6,7 +6,10 @@ class VerticeDados(CachedModel):
         self.professor = professor
         self.turma = turma
         self.materia = materia
-        self.cor = None
+        self.horario = None
+
+    def __str__(self):
+        return f'{self.professor} {self.turma} {self.materia} {self.horario}'
 
     @property
     def professor(self):
@@ -39,7 +42,10 @@ class VerticeDados(CachedModel):
 class CopiaVerticeDados(CachedModel):
     def __init__(self, vertice: VerticeDados):
         self.vertice = vertice
-        self.cor = None
+        self.horario = None
+
+    def __str__(self):
+        return f'{self.vertice} | {self.horario}'
 
     @property
     def professor(self):

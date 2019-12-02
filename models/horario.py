@@ -12,6 +12,9 @@ class Horario(UniqueCachedModel):
         self.hora = hora
         self.dia = dia
 
+    def __str__(self):
+        return f'{self.identificador} {self.cor}'
+
     @staticmethod
     def construir_identificador(dia, hora):
         return f'{dia} {hora}'
@@ -20,6 +23,9 @@ class Horario(UniqueCachedModel):
 class Hora(UniqueCachedModel):
     def __init__(self, value):
         self.value = value
+
+    def __str__(self):
+        return f'{self.value}'
 
 
 def popular_horarios():

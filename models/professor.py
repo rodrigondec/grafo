@@ -11,6 +11,9 @@ class Professor(UniqueCachedModel):
         if not hasattr(self, 'preferencias'):
             self.preferencias = []
 
+    def __str__(self):
+        return f'{self.value}'
+
     def add_vertice(self, value):
         self.vertices.append(value)
 

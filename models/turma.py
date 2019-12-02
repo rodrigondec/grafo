@@ -9,6 +9,9 @@ class Turma(UniqueCachedModel):
             if not hasattr(self, 'restricoes'):
                 self.restricoes = []
 
+    def __str__(self):
+        return f'{self.value}'
+
     def add_vertice(self, value):
         self.vertices.append(value)
 

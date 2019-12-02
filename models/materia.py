@@ -7,5 +7,8 @@ class Materia(UniqueCachedModel):
         if not hasattr(self, 'vertices'):
             self.vertices = []
 
+    def __str__(self):
+        return f'{self.value}'
+
     def add_vertice(self, value):
         self.vertices.append(value)
