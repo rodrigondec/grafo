@@ -1,7 +1,7 @@
 from models.db import CachedModel
 
 
-class VerticeDados(CachedModel):
+class Vertice(CachedModel):
     def __init__(self, professor, turma, materia):
         self.professor = professor
         self.turma = turma
@@ -39,8 +39,8 @@ class VerticeDados(CachedModel):
         value.add_vertice(self)
 
 
-class CopiaVerticeDados(CachedModel):
-    def __init__(self, vertice: VerticeDados):
+class CopiaVertice(CachedModel):
+    def __init__(self, vertice: Vertice):
         self.vertice = vertice
         self.horario = None
 

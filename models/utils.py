@@ -2,7 +2,7 @@ from models.horario import Hora, Horario
 from models.materia import Materia
 from models.professor import Professor
 from models.turma import Turma
-from models.vertice import VerticeDados, CopiaVerticeDados
+from models.vertice import Vertice, CopiaVertice
 
 
 def clean_db():
@@ -11,5 +11,5 @@ def clean_db():
     Materia._instances = {}
     Hora._instances = {}
     Horario._instances = {}
-    VerticeDados._instances = []
-    CopiaVerticeDados._instances = []
+    Vertice._instances = []
+    CopiaVertice._instances = []

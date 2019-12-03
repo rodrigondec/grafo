@@ -2,7 +2,7 @@ import copy
 
 from data_parser import parse, DATA
 from models.horario import Horario
-from models.vertice import VerticeDados, CopiaVerticeDados
+from models.vertice import Vertice, CopiaVertice
 from models.utils import clean_db
 
 
@@ -12,8 +12,8 @@ class Grafo:
 
         parse(file_path)
 
-        self.vertices = copy.copy(VerticeDados.instances)
-        self.copia_vertices = [CopiaVerticeDados(vertice) for vertice in self.vertices]
+        self.vertices = copy.copy(Vertice.instances)
+        self.copia_vertices = [CopiaVertice(vertice) for vertice in self.vertices]
 
     def __str__(self):
         string = f"Escola {self.file_path}\n"

@@ -4,7 +4,7 @@ from models.horario import Hora, popular_horarios, Horario
 from models.materia import Materia
 from models.professor import Professor
 from models.turma import Turma
-from models.vertice import VerticeDados
+from models.vertice import Vertice
 
 DATA = [
     "data/Escola_A.xlsx",
@@ -46,7 +46,7 @@ class DataParser:
             quantidade_aulas = serie.get('quantidade_aulas')
 
             for aula in range(quantidade_aulas):
-                VerticeDados(professor, turma, materia)
+                Vertice(professor, turma, materia)
 
     def parse_configuracoes(self):
         df = self.get_data_frame(self.CONFIGURACOES)

@@ -5,7 +5,7 @@ from models.professor import Professor
 from models.turma import Turma
 from models.materia import Materia
 from models.horario import Hora, Horario
-from models.vertice import VerticeDados
+from models.vertice import Vertice
 from models.utils import clean_db
 
 
@@ -17,7 +17,7 @@ class DataParserTestCase(TestCase):
         self.assertEqual(len(Professor.instances.values()), 0)
         self.assertEqual(len(Turma.instances.values()), 0)
         self.assertEqual(len(Materia.instances.values()), 0)
-        self.assertEqual(len(VerticeDados.instances), 0)
+        self.assertEqual(len(Vertice.instances), 0)
 
         dt = DataParser("data/Escola_A.xlsx")
         dt.parse_dados()
@@ -25,48 +25,48 @@ class DataParserTestCase(TestCase):
         self.assertEqual(len(Professor.instances.values()), 28)
         self.assertEqual(len(Turma.instances.values()), 11)
         self.assertEqual(len(Materia.instances.values()), 11)
-        self.assertEqual(len(VerticeDados.instances), 302)
+        self.assertEqual(len(Vertice.instances), 302)
 
     def test_parse_dados_turma(self):
         self.assertEqual(len(Turma.instances.values()), 0)
-        self.assertEqual(len(VerticeDados.instances), 0)
+        self.assertEqual(len(Vertice.instances), 0)
 
         dt = DataParser("data/Escola_A.xlsx")
         dt.parse_dados()
 
         self.assertEqual(len(Turma.instances.values()), 11)
-        self.assertEqual(len(VerticeDados.instances), 302)
+        self.assertEqual(len(Vertice.instances), 302)
 
         for instance in Turma.instances.values():
-            lista_vertices = [vertice for vertice in VerticeDados.instances if vertice.turma == instance]
+            lista_vertices = [vertice for vertice in Vertice.instances if vertice.turma == instance]
             self.assertEqual(lista_vertices, instance.vertices)
 
     def test_parse_dados_professor(self):
         self.assertEqual(len(Professor.instances.values()), 0)
-        self.assertEqual(len(VerticeDados.instances), 0)
+        self.assertEqual(len(Vertice.instances), 0)
 
         dt = DataParser("data/Escola_A.xlsx")
         dt.parse_dados()
 
         self.assertEqual(len(Professor.instances.values()), 28)
-        self.assertEqual(len(VerticeDados.instances), 302)
+        self.assertEqual(len(Vertice.instances), 302)
 
         for instance in Professor.instances.values():
-            lista_vertices = [vertice for vertice in VerticeDados.instances if vertice.professor == instance]
+            lista_vertices = [vertice for vertice in Vertice.instances if vertice.professor == instance]
             self.assertEqual(lista_vertices, instance.vertices)
 
     def test_parse_dados_materia(self):
         self.assertEqual(len(Materia.instances.values()), 0)
-        self.assertEqual(len(VerticeDados.instances), 0)
+        self.assertEqual(len(Vertice.instances), 0)
 
         dt = DataParser("data/Escola_A.xlsx")
         dt.parse_dados()
 
         self.assertEqual(len(Materia.instances.values()), 11)
-        self.assertEqual(len(VerticeDados.instances), 302)
+        self.assertEqual(len(Vertice.instances), 302)
 
         for instance in Materia.instances.values():
-            lista_vertices = [vertice for vertice in VerticeDados.instances if vertice.materia == instance]
+            lista_vertices = [vertice for vertice in Vertice.instances if vertice.materia == instance]
             self.assertEqual(lista_vertices, instance.vertices)
 
     def test_parse_configuracoes(self):
