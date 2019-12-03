@@ -1,3 +1,9 @@
+"""
+.. module:: db
+   :synopsis: db
+.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
+"""
+
 from utils import classproperty
 
 

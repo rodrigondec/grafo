@@ -1,3 +1,10 @@
+"""
+.. module:: horario
+   :synopsis: horario
+.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
+"""
+
+
 from models.db import UniqueCachedModel
 
 

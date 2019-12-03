@@ -1,3 +1,9 @@
+"""
+.. module:: vertice
+   :synopsis: vertice
+.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
+"""
+
 from models.db import CachedModel
 
 

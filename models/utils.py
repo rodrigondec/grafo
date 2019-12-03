@@ -1,3 +1,9 @@
+"""
+.. module:: utils
+   :synopsis: utils
+.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
+"""
+
 from models.horario import Hora, Horario
 from models.materia import Materia
 from models.professor import Professor

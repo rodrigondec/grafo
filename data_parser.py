@@ -1,3 +1,9 @@
+"""
+.. module:: data_parser
+   :synopsis: DataParser para os arquivos excell
+.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
+"""
+
 import pandas
 
 from models.horario import Hora, popular_horarios, Horario

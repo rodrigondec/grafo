@@ -1,3 +1,9 @@
+"""
+.. module:: turma
+   :synopsis: turma
+.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
+"""
+
 from models.db import UniqueCachedModel
 from models.vertice import Vertice
 from models.horario import Horario

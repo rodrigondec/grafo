@@ -1,3 +1,9 @@
+"""
+.. module:: grafo
+   :synopsis: Grafo
+.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
+"""
+
 import copy
 
 from data_parser import parse, DATA
