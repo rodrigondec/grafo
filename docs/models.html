@@ -1,0 +1,510 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="pt-BR" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="pt-BR" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>models package &mdash; documentação Grafos 0.1</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Buscar" href="search.html" />
+    <link rel="next" title="grafo module" href="grafo.html" />
+    <link rel="prev" title="Welcome to Grafos’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Grafos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">models package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models.db">models.db module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models.horario">models.horario module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models.materia">models.materia module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models.professor">models.professor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models.turma">models.turma module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models.utils">models.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models.vertice">models.vertice module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grafo.html">grafo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_parser.html">data_parser module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Grafos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>models package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/models.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="models-package">
+<h1>models package<a class="headerlink" href="#models-package" title="Link permanente para este título">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link permanente para este título">¶</a></h2>
+</div>
+<div class="section" id="module-models.db">
+<span id="models-db-module"></span><h2>models.db module<a class="headerlink" href="#module-models.db" title="Link permanente para este título">¶</a></h2>
+<dl class="class">
+<dt id="models.db.CachedModel">
+<em class="property">class </em><code class="sig-prename descclassname">models.db.</code><code class="sig-name descname">CachedModel</code><a class="headerlink" href="#models.db.CachedModel" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe a ser herdada para criar a parsistência dos objetos de sua classe
+filha em uma lista (não garantindo valor único para cada modelo)</p>
+<dl class="method">
+<dt id="models.db.CachedModel.get">
+<em class="property">classmethod </em><code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">index</em><span class="sig-paren">)</span><a class="headerlink" href="#models.db.CachedModel.get" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método para pegar um objeto da lista de persistência da classe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>index</strong> – indice do objeto.</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>objeto do indice</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.db.CachedModel.instances">
+<code class="sig-name descname">instances</code><em class="property"> = []</em><a class="headerlink" href="#models.db.CachedModel.instances" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="models.db.UniqueCachedModel">
+<em class="property">class </em><code class="sig-prename descclassname">models.db.</code><code class="sig-name descname">UniqueCachedModel</code><a class="headerlink" href="#models.db.UniqueCachedModel" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Classe a ser herdada para criar a parsistência dos objetos de sua classe
+filha em um dicionário (garantindo valor único para cada modelo)</p>
+<dl class="method">
+<dt id="models.db.UniqueCachedModel.get">
+<em class="property">classmethod </em><code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">key</em><span class="sig-paren">)</span><a class="headerlink" href="#models.db.UniqueCachedModel.get" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método para pegar um objeto do dicionário de persistência da classe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>key</strong> – identificador do objeto.</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>objeto do identificador OU None (caso objeto não exista)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.db.UniqueCachedModel.instances">
+<code class="sig-name descname">instances</code><em class="property"> = {}</em><a class="headerlink" href="#models.db.UniqueCachedModel.instances" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-models.horario">
+<span id="models-horario-module"></span><h2>models.horario module<a class="headerlink" href="#module-models.horario" title="Link permanente para este título">¶</a></h2>
+<dl class="class">
+<dt id="models.horario.Hora">
+<em class="property">class </em><code class="sig-prename descclassname">models.horario.</code><code class="sig-name descname">Hora</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#models.horario.Hora" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <a class="reference internal" href="#models.db.UniqueCachedModel" title="models.db.UniqueCachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.UniqueCachedModel</span></code></a></p>
+<p>Classe que representa uma hora. Ex.: ‘07:00’</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="models.horario.Horario">
+<em class="property">class </em><code class="sig-prename descclassname">models.horario.</code><code class="sig-name descname">Horario</code><span class="sig-paren">(</span><em class="sig-param">identificador</em>, <em class="sig-param">dia</em>, <em class="sig-param">hora</em><span class="sig-paren">)</span><a class="headerlink" href="#models.horario.Horario" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <a class="reference internal" href="#models.db.UniqueCachedModel" title="models.db.UniqueCachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.UniqueCachedModel</span></code></a></p>
+<p>Classe que representa um horário (com coloração). ex.: Segunda 07:00</p>
+<dl class="attribute">
+<dt id="models.horario.Horario.DIAS">
+<code class="sig-name descname">DIAS</code><em class="property"> = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta']</em><a class="headerlink" href="#models.horario.Horario.DIAS" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="models.horario.Horario.construir_identificador">
+<em class="property">static </em><code class="sig-name descname">construir_identificador</code><span class="sig-paren">(</span><em class="sig-param">dia</em>, <em class="sig-param">hora</em><span class="sig-paren">)</span><a class="headerlink" href="#models.horario.Horario.construir_identificador" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Constroi um identificador único para o horário baseado em um dia e hora.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dia</strong> – Dia passado</p></li>
+<li><p><strong>hora</strong> – Hora passada</p></li>
+</ul>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>identificador único</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="models.horario.popular_horarios">
+<code class="sig-prename descclassname">models.horario.</code><code class="sig-name descname">popular_horarios</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.horario.popular_horarios" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método auxiliar para pupular todos os horário possíveis baseado nas ‘Horas’ existentes.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-models.materia">
+<span id="models-materia-module"></span><h2>models.materia module<a class="headerlink" href="#module-models.materia" title="Link permanente para este título">¶</a></h2>
+<dl class="class">
+<dt id="models.materia.Materia">
+<em class="property">class </em><code class="sig-prename descclassname">models.materia.</code><code class="sig-name descname">Materia</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#models.materia.Materia" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <a class="reference internal" href="#models.db.UniqueCachedModel" title="models.db.UniqueCachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.UniqueCachedModel</span></code></a></p>
+<p>Classe que representa uma matéria. Ex.: ‘Filosofia’</p>
+<dl class="method">
+<dt id="models.materia.Materia.add_vertice">
+<code class="sig-name descname">add_vertice</code><span class="sig-paren">(</span><em class="sig-param">value: models.vertice.Vertice</em><span class="sig-paren">)</span><a class="headerlink" href="#models.materia.Materia.add_vertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Adiciona um vertice à lista de vertices da materia</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>value</strong> – Vertice passado</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-models.professor">
+<span id="models-professor-module"></span><h2>models.professor module<a class="headerlink" href="#module-models.professor" title="Link permanente para este título">¶</a></h2>
+<dl class="class">
+<dt id="models.professor.Professor">
+<em class="property">class </em><code class="sig-prename descclassname">models.professor.</code><code class="sig-name descname">Professor</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#models.professor.Professor" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <a class="reference internal" href="#models.db.UniqueCachedModel" title="models.db.UniqueCachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.UniqueCachedModel</span></code></a></p>
+<p>Classe que representa um professor. Ex.: ‘Aurélio’</p>
+<dl class="method">
+<dt id="models.professor.Professor.add_preferencia">
+<code class="sig-name descname">add_preferencia</code><span class="sig-paren">(</span><em class="sig-param">value: models.horario.Horario</em><span class="sig-paren">)</span><a class="headerlink" href="#models.professor.Professor.add_preferencia" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Adiciona um Horario de preferência à lista de preferẽncias do professor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>value</strong> – Horario passado</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.professor.Professor.add_restricao">
+<code class="sig-name descname">add_restricao</code><span class="sig-paren">(</span><em class="sig-param">value: models.horario.Horario</em><span class="sig-paren">)</span><a class="headerlink" href="#models.professor.Professor.add_restricao" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Adiciona um Horario de restrição à lista de restrições do professor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>value</strong> – Horario passado</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.professor.Professor.add_vertice">
+<code class="sig-name descname">add_vertice</code><span class="sig-paren">(</span><em class="sig-param">value: models.vertice.Vertice</em><span class="sig-paren">)</span><a class="headerlink" href="#models.professor.Professor.add_vertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Adiciona um vertice à lista de vertices do professor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>value</strong> – Vertice passado</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-models.turma">
+<span id="models-turma-module"></span><h2>models.turma module<a class="headerlink" href="#module-models.turma" title="Link permanente para este título">¶</a></h2>
+<dl class="class">
+<dt id="models.turma.Turma">
+<em class="property">class </em><code class="sig-prename descclassname">models.turma.</code><code class="sig-name descname">Turma</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#models.turma.Turma" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <a class="reference internal" href="#models.db.UniqueCachedModel" title="models.db.UniqueCachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.UniqueCachedModel</span></code></a></p>
+<p>Classe que representa uma turma. Ex.: ‘Turma A’</p>
+<dl class="method">
+<dt id="models.turma.Turma.add_restricao">
+<code class="sig-name descname">add_restricao</code><span class="sig-paren">(</span><em class="sig-param">value: models.horario.Horario</em><span class="sig-paren">)</span><a class="headerlink" href="#models.turma.Turma.add_restricao" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Adiciona um Horario de restrição à lista de restrições vertices da turma</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>value</strong> – Horario passado</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.turma.Turma.add_vertice">
+<code class="sig-name descname">add_vertice</code><span class="sig-paren">(</span><em class="sig-param">value: models.vertice.Vertice</em><span class="sig-paren">)</span><a class="headerlink" href="#models.turma.Turma.add_vertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Adiciona um vertice à lista de vertices da turma</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>value</strong> – Vertice passado</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-models.utils">
+<span id="models-utils-module"></span><h2>models.utils module<a class="headerlink" href="#module-models.utils" title="Link permanente para este título">¶</a></h2>
+<dl class="function">
+<dt id="models.utils.clean_db">
+<code class="sig-prename descclassname">models.utils.</code><code class="sig-name descname">clean_db</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.utils.clean_db" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método auxiliar que reseta a persistência de todos os modelos.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-models.vertice">
+<span id="models-vertice-module"></span><h2>models.vertice module<a class="headerlink" href="#module-models.vertice" title="Link permanente para este título">¶</a></h2>
+<dl class="class">
+<dt id="models.vertice.CopiaVertice">
+<em class="property">class </em><code class="sig-prename descclassname">models.vertice.</code><code class="sig-name descname">CopiaVertice</code><span class="sig-paren">(</span><em class="sig-param">vertice: models.vertice.Vertice</em><span class="sig-paren">)</span><a class="headerlink" href="#models.vertice.CopiaVertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <a class="reference internal" href="#models.db.CachedModel" title="models.db.CachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.CachedModel</span></code></a></p>
+<p>Classe que representa uma copia de um vértice, contendo um vertice e um horário (cor).</p>
+<dl class="method">
+<dt id="models.vertice.CopiaVertice.materia">
+<em class="property">property </em><code class="sig-name descname">materia</code><a class="headerlink" href="#models.vertice.CopiaVertice.materia" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método para pegar a materia do vertice original</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>materia</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.vertice.CopiaVertice.professor">
+<em class="property">property </em><code class="sig-name descname">professor</code><a class="headerlink" href="#models.vertice.CopiaVertice.professor" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método para pegar o professor do vertice original
+:returns: professor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.vertice.CopiaVertice.turma">
+<em class="property">property </em><code class="sig-name descname">turma</code><a class="headerlink" href="#models.vertice.CopiaVertice.turma" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método para pegar a turma do vertice original</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>turma</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="models.vertice.Vertice">
+<em class="property">class </em><code class="sig-prename descclassname">models.vertice.</code><code class="sig-name descname">Vertice</code><span class="sig-paren">(</span><em class="sig-param">professor</em>, <em class="sig-param">turma</em>, <em class="sig-param">materia</em><span class="sig-paren">)</span><a class="headerlink" href="#models.vertice.Vertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <a class="reference internal" href="#models.db.CachedModel" title="models.db.CachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.CachedModel</span></code></a></p>
+<p>Classe que representa um vértice, contendo um professor, uma matéria, uma turma e um horário (cor).</p>
+<dl class="method">
+<dt id="models.vertice.Vertice.materia">
+<em class="property">property </em><code class="sig-name descname">materia</code><a class="headerlink" href="#models.vertice.Vertice.materia" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método para pegar a materia do vertice</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>materia</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.vertice.Vertice.professor">
+<em class="property">property </em><code class="sig-name descname">professor</code><a class="headerlink" href="#models.vertice.Vertice.professor" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método para pegar o professor do vertice</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>professor</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="models.vertice.Vertice.turma">
+<em class="property">property </em><code class="sig-name descname">turma</code><a class="headerlink" href="#models.vertice.Vertice.turma" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método para pegar a turma do vertice</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>turma</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-models">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-models" title="Link permanente para este título">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="grafo.html" class="btn btn-neutral float-right" title="grafo module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Grafos’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Rodrigo Castro
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="pt-BR" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="pt-BR" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>data_parser module &mdash; documentação Grafos 0.1</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Buscar" href="search.html" />
+    <link rel="next" title="utils module" href="utils.html" />
+    <link rel="prev" title="grafo module" href="grafo.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Grafos
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="models.html">models package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grafo.html">grafo module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">data_parser module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">utils module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Grafos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>data_parser module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/data_parser.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-data_parser">
+<span id="data-parser-module"></span><h1>data_parser module<a class="headerlink" href="#module-data_parser" title="Link permanente para este título">¶</a></h1>
+<dl class="class">
+<dt id="data_parser.DataParser">
+<em class="property">class </em><code class="sig-prename descclassname">data_parser.</code><code class="sig-name descname">DataParser</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#data_parser.DataParser" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Essa classe é a responsável por processar as informações das planilhas
+excell e salvar as informções em suas devidas classes.</p>
+<dl class="attribute">
+<dt id="data_parser.DataParser.CONFIGURACOES">
+<code class="sig-name descname">CONFIGURACOES</code><em class="property"> = {'columns': ['horario_inicio'], 'name': 'Configuracoes'}</em><a class="headerlink" href="#data_parser.DataParser.CONFIGURACOES" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="data_parser.DataParser.DADOS">
+<code class="sig-name descname">DADOS</code><em class="property"> = {'columns': ['materia', 'turma', 'professor', 'quantidade_aulas'], 'name': 'Dados'}</em><a class="headerlink" href="#data_parser.DataParser.DADOS" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="data_parser.DataParser.PREFERENCIAS">
+<code class="sig-name descname">PREFERENCIAS</code><em class="property"> = {'columns': ['professor', 'hora', 'dia_semana'], 'name': 'Preferencias'}</em><a class="headerlink" href="#data_parser.DataParser.PREFERENCIAS" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="data_parser.DataParser.RESTRICOES_PROFESSOR">
+<code class="sig-name descname">RESTRICOES_PROFESSOR</code><em class="property"> = {'columns': ['professor', 'hora', 'dia_semana'], 'name': 'Restricao'}</em><a class="headerlink" href="#data_parser.DataParser.RESTRICOES_PROFESSOR" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="data_parser.DataParser.RESTRICOES_TURMA">
+<code class="sig-name descname">RESTRICOES_TURMA</code><em class="property"> = {'columns': ['turma', 'hora', 'dia_semana'], 'name': 'Restricoes Turma'}</em><a class="headerlink" href="#data_parser.DataParser.RESTRICOES_TURMA" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="data_parser.DataParser.get_data_frame">
+<code class="sig-name descname">get_data_frame</code><span class="sig-paren">(</span><em class="sig-param">sheet_options</em><span class="sig-paren">)</span><a class="headerlink" href="#data_parser.DataParser.get_data_frame" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Metodo para retornar um DataFrame do pandas (biblioteca de analise de
+planilhas) para uma das folhas do arquivo do DataParser.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>sheet_options</strong> – variável que possui as configuracoes da folha da planilha</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>DataFrame da folha escolhida da planilha</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_parser.DataParser.parse">
+<code class="sig-name descname">parse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_parser.DataParser.parse" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Metodo para chamar o processamento de todas as folhas do arquivo do
+DataParser</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_parser.DataParser.parse_configuracoes">
+<code class="sig-name descname">parse_configuracoes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_parser.DataParser.parse_configuracoes" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Analisa e salva todas as informações que estão na planilha
+Configuracoes do arquivo. Criando os modelos ‘Hora’ e ‘Horario’</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_parser.DataParser.parse_dados">
+<code class="sig-name descname">parse_dados</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_parser.DataParser.parse_dados" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Analisa e salva todas as informações que estão na planilha Dados do
+arquivo. Criando os modelos ‘Materia’, ‘Turma’, ‘Professor’ e ‘Vertice’.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_parser.DataParser.parse_preferencias">
+<code class="sig-name descname">parse_preferencias</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_parser.DataParser.parse_preferencias" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Analisa e salva todas as informações que estão na planilha
+‘Preferencias’ do arquivo. Salvando as preferências de ‘Horario’ no
+devido ‘Professor’</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_parser.DataParser.parse_restricoes_professor">
+<code class="sig-name descname">parse_restricoes_professor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_parser.DataParser.parse_restricoes_professor" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Analisa e salva todas as informações que estão na planilha
+Restricoes do arquivo. Salvando as restricoes de Horario no devido
+Professor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="data_parser.DataParser.parse_restricoes_turma">
+<code class="sig-name descname">parse_restricoes_turma</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#data_parser.DataParser.parse_restricoes_turma" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Analisa e salva todas as informações que estão na planilha
+Restricoes Turma do arquivo. Salvando as restricoes de Horario na
+devida Turma</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="data_parser.parse">
+<code class="sig-prename descclassname">data_parser.</code><code class="sig-name descname">parse</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#data_parser.parse" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Função auxiliar para criar um DataParser e processar seu arquivo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>file_path</strong> – Arquivo a ser processado</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="utils.html" class="btn btn-neutral float-right" title="utils module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="grafo.html" class="btn btn-neutral float-left" title="grafo module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Rodrigo Castro
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
