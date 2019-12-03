@@ -1,4 +1,4 @@
-from db import UniqueCachedModel, CachedModel
+from models.db import UniqueCachedModel
 
 
 class Horario(UniqueCachedModel):

@@ -5,17 +5,13 @@ from models.professor import Professor
 from models.turma import Turma
 from models.materia import Materia
 from models.horario import Hora, Horario
-from grafo.vertice import VerticeDados
+from models.vertice import VerticeDados
+from models.utils import clean_db
 
 
 class DataParserTestCase(TestCase):
     def tearDown(self):
-        Professor._instances = {}
-        Turma._instances = {}
-        Materia._instances = {}
-        Hora._instances = {}
-        Horario._instances = {}
-        VerticeDados._instances = []
+        clean_db()
 
     def test_parse_dados(self):
         self.assertEqual(len(Professor.instances.values()), 0)

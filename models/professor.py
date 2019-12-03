@@ -1,4 +1,4 @@
-from db import UniqueCachedModel
+from models.db import UniqueCachedModel
 
 
 class Professor(UniqueCachedModel):
