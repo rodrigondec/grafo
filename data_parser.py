@@ -15,8 +15,8 @@ DATA = [
 
 
 class DataParser:
-    """Essa classe é a responsavel por processar as informacoes das planilhas
-    excell e salvar as informacoes em suas devidas classes.
+    """Essa classe é a responsável por processar as informações das planilhas
+    excell e salvar as informções em suas devidas classes.
     """
 
     DADOS = {'name': 'Dados', 'columns': ['materia', 'turma', 'professor', 'quantidade_aulas']}
@@ -41,7 +41,7 @@ class DataParser:
         planilhas) para uma das folhas do arquivo do DataParser.
 
         Args:
-            sheet_options: variavel que possui as configuracoes da folha da planilha
+            sheet_options: variável que possui as configuracoes da folha da planilha
 
         Returns:
             DataFrame da folha escolhida da planilha
@@ -61,8 +61,8 @@ class DataParser:
 
     def parse_dados(self):
         """
-        Analisa e salva todas as informacoes que estão na planilha Dados do
-        arquivo. Criando os modelos Materia, Turma, Professor e Vertice.
+        Analisa e salva todas as informações que estão na planilha Dados do
+        arquivo. Criando os modelos 'Materia', 'Turma', 'Professor' e 'Vertice'.
         """
         df = self.get_data_frame(self.DADOS)
 
@@ -79,8 +79,8 @@ class DataParser:
 
     def parse_configuracoes(self):
         """
-        Analisa e salva todas as informacoes que estão na planilha
-        Configuracoes do arquivo. Criando os modelos Hora e Horario
+        Analisa e salva todas as informações que estão na planilha
+        Configuracoes do arquivo. Criando os modelos 'Hora' e 'Horario'
         """
         df = self.get_data_frame(self.CONFIGURACOES)
 
