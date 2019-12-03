@@ -1,6 +1,6 @@
 docs.build:
-	sphinx-build sphinx/source/ docs/
+	sphinx-build docs/source/ docs/
 
 docs.autodoc:
-	sphinx-apidoc -f -o sphinx/source .
+	sphinx-apidoc -f -o docs/source .
 
