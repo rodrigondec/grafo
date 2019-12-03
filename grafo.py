@@ -7,7 +7,14 @@ from models.utils import clean_db
 
 
 class Grafo:
+    """
+    Classe que representa um grafo
+    """
     def __init__(self, file_path):
+        """
+        Inicializa os valores do Grafo criado. Realiza o processamento do arquivo passado.
+        :param file_path:
+        """
         self.file_path = file_path
 
         parse(file_path)
@@ -16,6 +23,10 @@ class Grafo:
         self.copia_vertices = [CopiaVertice(vertice) for vertice in self.vertices]
 
     def __str__(self):
+        """
+        Cria representação como string do objeto
+        :return: string de representação
+        """
         string = f"Escola {self.file_path}\n"
         string += f"Quantidade de cores: {len(Horario.instances.values())}\n"
         string += f"Quantidade de vértices não coloridos: " \
@@ -24,6 +35,10 @@ class Grafo:
         return string
 
     def process(self):
+        """
+        Método responsável por realizar a coloração do grafo.
+        :return: NA
+        """
         pass
 
 
