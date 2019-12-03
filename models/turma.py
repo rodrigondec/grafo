@@ -1,9 +1,3 @@
-"""
-.. module:: turma
-   :synopsis: turma
-.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
-"""
-
 from models.db import UniqueCachedModel
 from models.vertice import Vertice
 from models.horario import Horario
@@ -16,7 +10,9 @@ class Turma(UniqueCachedModel):
     def __init__(self, value):
         """
         Inicializa os valores da Turma criada ou retornada.
-        :param value: nome da materia
+
+        Args:
+            value: nome da materia
         """
         self.value = value
         if not hasattr(self, 'vertices'):
@@ -27,22 +23,26 @@ class Turma(UniqueCachedModel):
     def __str__(self):
         """
         Cria representação como string do objeto
-        :return: string de representação
+
+        Returns:
+            string de representação
         """
         return f'{self.value}'
 
     def add_vertice(self, value: Vertice):
         """
         Adiciona um vertice à lista de vertices da turma
-        :param value: Vertice passado
-        :return: NA
+
+        Args:
+            value: Vertice passado
         """
         self.vertices.append(value)
 
     def add_restricao(self, value: Horario):
         """
         Adiciona um Horario de restrição à lista de restrições vertices da turma
-        :param value: Horario passado
-        :return: NA
+
+        Args:
+            value: Horario passado
         """
         self.restricoes.append(value)

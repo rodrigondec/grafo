@@ -1,9 +1,3 @@
-"""
-.. module:: db
-   :synopsis: db
-.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
-"""
-
 from utils import classproperty
 
 
@@ -16,9 +10,13 @@ class UniqueCachedModel:
         """
         Método que cria um novo objeto da classe salvando ele na persistência.
         Caso um objeto com o identificador já exista, retorna esse objeto.
-        :param args:
-        :param kwargs:
-        :return: objeto achado ou criado
+
+        Args:
+            args: list of args
+            kwargs: dictionary of kwargs
+
+        Returns:
+             objeto achado ou criado
         """
         if not hasattr(cls, '_instances'):
             cls._instances = {}
@@ -33,9 +31,10 @@ class UniqueCachedModel:
 
     @classproperty
     def instances(cls):
-        """
-        Método que retorna o dicionário de persistência da classe.
-        :return:
+        """Método que retorna o dicionário de persistência da classe.
+
+        Returns:
+            lista de objetos
         """
         return getattr(cls, '_instances', {})
 
@@ -43,8 +42,12 @@ class UniqueCachedModel:
     def get(cls, key):
         """
         Método para pegar um objeto do dicionário de persistência da classe.
-        :param key: identificador do objeto.
-        :return: objeto do identificador OU None (caso objeto não exista)
+
+        Args:
+            key: identificador do objeto.
+
+        Returns:
+            objeto do identificador OU None (caso objeto não exista)
         """
         return cls.instances.get(key)
 
@@ -57,9 +60,13 @@ class CachedModel:
     def __new__(cls, *args, **kwargs):
         """
         Método que cria um novo objeto da classe salvando ele na persistência.
-        :param args:
-        :param kwargs:
-        :return: objeto criado
+
+        Args:
+            args: list of args
+            kwargs: dictionary of kwargs
+
+        Returns:
+             objeto criado
         """
         if not hasattr(cls, '_instances'):
             cls._instances = []
@@ -73,7 +80,9 @@ class CachedModel:
     def instances(cls):
         """
         Método que retorna a lista de persistência da classe.
-        :return:
+
+        Returns:
+            lista de objetos da persistência
         """
         return getattr(cls, '_instances', [])
 
@@ -81,7 +90,11 @@ class CachedModel:
     def get(cls, index):
         """
         Método para pegar um objeto da lista de persistência da classe.
-        :param index: indice do objeto.
-        :return: objeto do indice
+
+        Args:
+           index: indice do objeto.
+
+        Returns:
+            objeto do indice
         """
         return cls.instances[index]

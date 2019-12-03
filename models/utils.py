@@ -1,9 +1,3 @@
-"""
-.. module:: utils
-   :synopsis: utils
-.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
-"""
-
 from models.horario import Hora, Horario
 from models.materia import Materia
 from models.professor import Professor
@@ -14,7 +8,6 @@ from models.vertice import Vertice, CopiaVertice
 def clean_db():
     """
     Método auxiliar que reseta a persistência de todos os modelos.
-    :return: NA
     """
     Professor._instances = {}
     Turma._instances = {}

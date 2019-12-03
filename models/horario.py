@@ -1,10 +1,3 @@
-"""
-.. module:: horario
-   :synopsis: horario
-.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
-"""
-
-
 from models.db import UniqueCachedModel
 
 
@@ -20,9 +13,11 @@ class Horario(UniqueCachedModel):
     def __init__(self, identificador, dia, hora):
         """
         Inicializa os valores do horário criado ou retornado
-        :param identificador: Identificador único do horário
-        :param dia: Dia do horário
-        :param hora: Hora do horário
+
+        Args:
+            identificador: Identificador único do horário
+            dia: Dia do horário
+            hora: Hora do horário
         """
         self.cor = list(self.instances.values()).index(self)
         self.identificador = identificador
@@ -32,7 +27,9 @@ class Horario(UniqueCachedModel):
     def __str__(self):
         """
         Cria representação como string do objeto
-        :return: string de representação
+
+        Returns:
+            string de representação
         """
         return f'{self.identificador} {self.cor}'
 
@@ -40,9 +37,13 @@ class Horario(UniqueCachedModel):
     def construir_identificador(dia, hora):
         """
         Constroi um identificador único para o horário baseado em um dia e hora.
-        :param dia: Dia passado
-        :param hora: Hora passada
-        :return: identificador único
+
+        Args:
+            dia: Dia passado
+            hora: Hora passada
+
+        Returns:
+            identificador único
         """
         return f'{dia} {hora}'
 
@@ -55,14 +56,18 @@ class Hora(UniqueCachedModel):
     def __init__(self, value):
         """
         Inicializa os valores da Hora criada ou retornada.
-        :param value: Hora
+
+        Args:
+            value: Hora
         """
         self.value = value
 
     def __str__(self):
         """
         Cria representação como string do objeto
-        :return: string de representação
+
+        Returns:
+            string de representação
         """
         return f'{self.value}'
 
@@ -70,7 +75,6 @@ class Hora(UniqueCachedModel):
 def popular_horarios():
     """
     Método auxiliar para pupular todos os horário possíveis baseado nas 'Horas' existentes.
-    :return: NA
     """
     aulas_por_dia = len(Hora.instances.values())
     if aulas_por_dia == 0:

@@ -1,9 +1,3 @@
-"""
-.. module:: data_parser
-   :synopsis: DataParser para os arquivos excell
-.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
-"""
-
 import pandas
 
 from models.horario import Hora, popular_horarios, Horario
@@ -21,9 +15,8 @@ DATA = [
 
 
 class DataParser:
-    """
-    Essa classe é a responsável por processar as informações das planilhas excell e salvar
-    as informações em suas devidas classes.
+    """Essa classe é a responsavel por processar as informacoes das planilhas
+    excell e salvar as informacoes em suas devidas classes.
     """
 
     DADOS = {'name': 'Dados', 'columns': ['materia', 'turma', 'professor', 'quantidade_aulas']}
@@ -35,24 +28,30 @@ class DataParser:
     def __init__(self, file_path):
         """
         Inicializa o DataParser para um arquivo específico.
-        :param file_path: Arquivo a ser processado.
+
+        Args:
+            file_path: Arquivo a ser processado.
         """
         self.name = file_path
         self.file = pandas.ExcelFile(file_path)
 
     def get_data_frame(self, sheet_options):
         """
-        Método para retornar um DataFrame do pandas (biblioteca de análise de planilhas) para
-        uma das folhas do arquivo do DataParser.
-        :param sheet_options: variável que possui as configurações da folha da planilha
-        :return: DataFrame da folha escolhida da planilha
+        Metodo para retornar um DataFrame do pandas (biblioteca de analise de
+        planilhas) para uma das folhas do arquivo do DataParser.
+
+        Args:
+            sheet_options: variavel que possui as configuracoes da folha da planilha
+
+        Returns:
+            DataFrame da folha escolhida da planilha
         """
         return self.file.parse(sheet_options.get('name'), names=sheet_options.get('columns'))
 
     def parse(self):
         """
-        Método para chamar o processamento de todas as folhas do arquivo do DataParser
-        :return: NA
+        Metodo para chamar o processamento de todas as folhas do arquivo do
+        DataParser
         """
         self.parse_dados()
         self.parse_configuracoes()
@@ -62,9 +61,8 @@ class DataParser:
 
     def parse_dados(self):
         """
-        Analisa e salva todas as informações que estão na planilha 'Dados' do arquivo.
-        Criando os modelos 'Materia', 'Turma', 'Professor' e 'Vertice'.
-        :return: NA
+        Analisa e salva todas as informacoes que estão na planilha Dados do
+        arquivo. Criando os modelos Materia, Turma, Professor e Vertice.
         """
         df = self.get_data_frame(self.DADOS)
 
@@ -81,9 +79,8 @@ class DataParser:
 
     def parse_configuracoes(self):
         """
-        Analisa e salva todas as informações que estão na planilha 'Configuracoes' do arquivo.
-        Criando os modelos 'Hora' e 'Horario'
-        :return: NA
+        Analisa e salva todas as informacoes que estão na planilha
+        Configuracoes do arquivo. Criando os modelos Hora e Horario
         """
         df = self.get_data_frame(self.CONFIGURACOES)
 
@@ -94,9 +91,9 @@ class DataParser:
 
     def parse_restricoes_professor(self):
         """
-        Analisa e salva todas as informações que estão na planilha 'Restricoes' do arquivo.
-        Salvando as restricoes de 'Horario' no devido 'Professor'
-        :return: NA
+        Analisa e salva todas as informações que estão na planilha
+        Restricoes do arquivo. Salvando as restricoes de Horario no devido
+        Professor
         """
         df = self.get_data_frame(self.RESTRICOES_PROFESSOR)
 
@@ -110,9 +107,9 @@ class DataParser:
 
     def parse_restricoes_turma(self):
         """
-        Analisa e salva todas as informações que estão na planilha 'Restricoes Turma' do arquivo.
-        Salvando as restricoes de 'Horario' na devida 'Turma'
-        :return: NA
+        Analisa e salva todas as informações que estão na planilha
+        Restricoes Turma do arquivo. Salvando as restricoes de Horario na
+        devida Turma
         """
         df = self.get_data_frame(self.RESTRICOES_TURMA)
 
@@ -126,10 +123,9 @@ class DataParser:
             turma.add_restricao(Horario.get(Horario.construir_identificador(dia, hora)))
 
     def parse_preferencias(self):
-        """
-        Analisa e salva todas as informações que estão na planilha 'Preferencias' do arquivo.
-        Salvando as preferências de 'Horario' no devido 'Professor'
-        :return: NA
+        """Analisa e salva todas as informações que estão na planilha
+        'Preferencias' do arquivo. Salvando as preferências de 'Horario' no
+        devido 'Professor'
         """
         df = self.get_data_frame(self.PREFERENCIAS)
 
@@ -146,8 +142,9 @@ class DataParser:
 def parse(file_path):
     """
     Função auxiliar para criar um DataParser e processar seu arquivo.
-    :param file_path: Arquivo a ser processado
-    :return:
+
+    Args:
+        file_path: Arquivo a ser processado
     """
     dt = DataParser(file_path)
     dt.parse()

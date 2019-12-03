@@ -1,9 +1,3 @@
-"""
-.. module:: vertice
-   :synopsis: vertice
-.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
-"""
-
 from models.db import CachedModel
 
 
@@ -14,9 +8,11 @@ class Vertice(CachedModel):
     def __init__(self, professor, turma, materia):
         """
         Inicializa os valores do Vertice criado
-        :param professor: Professor passado
-        :param turma: Turma passada
-        :param materia: Materia passada
+
+        Args:
+            professor: Professor passado
+            turma: Turma passada
+            materia: Materia passada
         """
         self.professor = professor
         self.turma = turma
@@ -26,7 +22,9 @@ class Vertice(CachedModel):
     def __str__(self):
         """
         Cria representação como string do objeto
-        :return: string de representação
+
+        Returns:
+            string de representação
         """
         return f'{self.professor} {self.turma} {self.materia} {self.horario}'
 
@@ -34,7 +32,9 @@ class Vertice(CachedModel):
     def professor(self):
         """
         Método para pegar o professor do vertice
-        :return: professor
+
+        Returns:
+            professor
         """
         return self._professor
 
@@ -43,7 +43,9 @@ class Vertice(CachedModel):
         """
         Método para atribuir o professor do vertice.
         E adiciona o vertice na lista de vertices do professor
-        :return: NA
+
+        Args:
+            value: professor
         """
         self._professor = value
         value.add_vertice(self)
@@ -52,7 +54,9 @@ class Vertice(CachedModel):
     def turma(self):
         """
         Método para pegar a turma do vertice
-        :return: turma
+
+        Returns:
+            turma
         """
         return self._turma
 
@@ -61,7 +65,9 @@ class Vertice(CachedModel):
         """
         Método para atribuir a turma do vertice.
         E adiciona o vertice na lista de vertices da turma
-        :return: NA
+
+        Args:
+            value: turma
         """
         self._turma = value
         value.add_vertice(self)
@@ -70,16 +76,20 @@ class Vertice(CachedModel):
     def materia(self):
         """
         Método para pegar a materia do vertice
-        :return: materia
+
+        Returns:
+            materia
         """
         return self._materia
 
     @materia.setter
     def materia(self, value):
         """
-        Método para atribuir a materia do vertice.
-        E adiciona o vertice na lista de vertices da materia
-        :return: NA
+        Método para atribuir a turma do vertice.
+        E adiciona o vertice na lista de vertices da turma
+
+        Args:
+            value: turma
         """
         self._materia = value
         value.add_vertice(self)
@@ -100,7 +110,9 @@ class CopiaVertice(CachedModel):
     def __str__(self):
         """
         Cria representação como string do objeto
-        :return: string de representação
+
+        Returns:
+            string de representação
         """
         return f'{self.vertice} | {self.horario}'
 
@@ -108,7 +120,8 @@ class CopiaVertice(CachedModel):
     def professor(self):
         """
         Método para pegar o professor do vertice original
-        :return: professor
+        Returns:
+            professor
         """
         return self.vertice.professor
 
@@ -116,7 +129,9 @@ class CopiaVertice(CachedModel):
     def turma(self):
         """
         Método para pegar a turma do vertice original
-        :return: turma
+
+        Returns:
+            turma
         """
         return self.vertice.turma
 
@@ -124,6 +139,8 @@ class CopiaVertice(CachedModel):
     def materia(self):
         """
         Método para pegar a materia do vertice original
-        :return: materia
+
+        Returns:
+            materia
         """
         return self.vertice.materia

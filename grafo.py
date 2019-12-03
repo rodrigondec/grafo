@@ -1,9 +1,3 @@
-"""
-.. module:: grafo
-   :synopsis: Grafo
-.. moduleauthor:: Rodrigo Castro <github.com/rodrigondec>
-"""
-
 import copy
 
 from data_parser import parse, DATA
@@ -19,7 +13,8 @@ class Grafo:
     def __init__(self, file_path):
         """
         Inicializa os valores do Grafo criado. Realiza o processamento do arquivo passado.
-        :param file_path:
+        Args:
+            file_path: local do arquivo.
         """
         self.file_path = file_path
 
@@ -31,7 +26,8 @@ class Grafo:
     def __str__(self):
         """
         Cria representação como string do objeto
-        :return: string de representação
+        Returns:
+            String de representação
         """
         string = f"Escola {self.file_path}\n"
         string += f"Quantidade de cores: {len(Horario.instances.values())}\n"
@@ -42,8 +38,7 @@ class Grafo:
 
     def process(self):
         """
-        Método responsável por realizar a coloração do grafo.
-        :return: NA
+        Método responsavel por realizar a coloração do grafo.
         """
         pass
 
