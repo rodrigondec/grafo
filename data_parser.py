@@ -4,7 +4,14 @@ from models.horario import Hora, popular_horarios, Horario
 from models.materia import Materia
 from models.professor import Professor
 from models.turma import Turma
-from grafo.vertice import VerticeDados
+from models.vertice import VerticeDados
+
+DATA = [
+    "data/Escola_A.xlsx",
+    "data/Escola_B.xlsx",
+    "data/Escola_C.xlsx",
+    "data/Escola_D.xlsx"
+]
 
 
 class DataParser:
@@ -20,6 +27,13 @@ class DataParser:
 
     def get_data_frame(self, sheet_options):
         return self.file.parse(sheet_options.get('name'), names=sheet_options.get('columns'))
+
+    def parse(self):
+        self.parse_dados()
+        self.parse_configuracoes()
+        self.parse_restricoes_professor()
+        self.parse_restricoes_turma()
+        self.parse_preferencias()
 
     def parse_dados(self):
         df = self.get_data_frame(self.DADOS)
@@ -76,5 +90,11 @@ class DataParser:
             professor.add_preferencia(Horario.get(Horario.construir_identificador(dia, hora)))
 
 
+def parse(file_path):
+    dt = DataParser(file_path)
+    dt.parse()
+
+
 if __name__ == "__main__":
-    dt = DataParser("data/Escola_A.xlsx")
+    parse(DATA[0])
+
