@@ -6,6 +6,10 @@ from models.vertice import Vertice, CopiaVertice
 
 
 def clean_db():
+    """
+    Método auxiliar que reseta a persistência de todos os modelos.
+    :return: NA
+    """
     Professor._instances = {}
     Turma._instances = {}
     Materia._instances = {}

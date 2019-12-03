@@ -48,7 +48,7 @@ class Hora(UniqueCachedModel):
     def __init__(self, value):
         """
         Inicializa os valores da Hora criada ou retornada.
-        :param value: valor da hora
+        :param value: Hora
         """
         self.value = value
 
