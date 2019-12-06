@@ -15,7 +15,7 @@ class Materia(UniqueCachedModel):
         """
         self.value = value
         if not hasattr(self, 'vertices'):
-            self.vertices = []
+            self.vertices = set()
 
     def __str__(self):
         """
@@ -33,4 +33,4 @@ class Materia(UniqueCachedModel):
         Args:
             value: Vertice passado
         """
-        self.vertices.append(value)
+        self.vertices.add(value)

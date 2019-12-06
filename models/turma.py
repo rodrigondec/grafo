@@ -16,9 +16,9 @@ class Turma(UniqueCachedModel):
         """
         self.value = value
         if not hasattr(self, 'vertices'):
-            self.vertices = []
+            self.vertices = set()
             if not hasattr(self, 'restricoes'):
-                self.restricoes = []
+                self.restricoes = set()
 
     def __str__(self):
         """
@@ -36,7 +36,7 @@ class Turma(UniqueCachedModel):
         Args:
             value: Vertice passado
         """
-        self.vertices.append(value)
+        self.vertices.add(value)
 
     def add_restricao(self, value: Horario):
         """
@@ -45,4 +45,4 @@ class Turma(UniqueCachedModel):
         Args:
             value: Horario passado
         """
-        self.restricoes.append(value)
+        self.restricoes.add(value)
