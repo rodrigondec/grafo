@@ -16,11 +16,11 @@ class Professor(UniqueCachedModel):
         """
         self.value = value
         if not hasattr(self, 'vertices'):
-            self.vertices = []
+            self.vertices = set()
         if not hasattr(self, 'restricoes'):
-            self.restricoes = []
+            self.restricoes = set()
         if not hasattr(self, 'preferencias'):
-            self.preferencias = []
+            self.preferencias = set()
 
     def __str__(self):
         """
@@ -38,7 +38,7 @@ class Professor(UniqueCachedModel):
         Args:
             value: Vertice passado
         """
-        self.vertices.append(value)
+        self.vertices.add(value)
 
     def add_restricao(self, value: Horario):
         """
@@ -47,7 +47,7 @@ class Professor(UniqueCachedModel):
         Args:
             value: Horario passado
         """
-        self.restricoes.append(value)
+        self.restricoes.add(value)
 
     def add_preferencia(self, value: Horario):
         """
@@ -56,4 +56,4 @@ class Professor(UniqueCachedModel):
         Args:
             value: Horario passado
         """
-        self.preferencias.append(value)
+        self.preferencias.add(value)
