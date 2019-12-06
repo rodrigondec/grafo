@@ -95,6 +95,10 @@ class Vertice(CachedModel):
         self._materia = value
         value.add_vertice(self)
 
+    def colorir(self):
+        if self.copia is not None:
+            self.horario = self.copia.horario
+
 
 class CopiaVertice(CachedModel):
     """
