@@ -158,6 +158,36 @@
 <em class="property">class </em><code class="sig-prename descclassname">grafo.</code><code class="sig-name descname">Grafo</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Base: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Classe que representa um grafo</p>
+<dl class="attribute">
+<dt id="grafo.Grafo.file_path">
+<code class="sig-name descname">file_path</code><a class="headerlink" href="#grafo.Grafo.file_path" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Caminho para o arquivo excell</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="grafo.Grafo.vertices">
+<code class="sig-name descname">vertices</code><a class="headerlink" href="#grafo.Grafo.vertices" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Lista de vertices pós processamento do excell</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="grafo.Grafo._cores">
+<code class="sig-name descname">_cores</code><a class="headerlink" href="#grafo.Grafo._cores" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Conjunto de cores (Horarios)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="grafo.Grafo._turmas">
+<code class="sig-name descname">_turmas</code><a class="headerlink" href="#grafo.Grafo._turmas" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Lista de Turmas</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="grafo.Grafo.context">
+<code class="sig-name descname">context</code><a class="headerlink" href="#grafo.Grafo.context" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Dicionário de contexto para algorítmo de coloração</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="grafo.Grafo.colorir">
 <code class="sig-name descname">colorir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.colorir" title="Link permanente para esta definição">¶</a></dt>
@@ -201,6 +231,30 @@ Returns: conjunto de cores possíveis para o vertice</p>
 <em class="property">property </em><code class="sig-name descname">cores_preferiveis_vertice</code><a class="headerlink" href="#grafo.Grafo.cores_preferiveis_vertice" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Método de acesso para o conjunto de cores preferíveis da vertice do context
 Returns: conjunto de cores preferíveis para o vertice</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.log_cores_sobrando">
+<code class="sig-name descname">log_cores_sobrando</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.log_cores_sobrando" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsável pelo logging das informações das cores que sobraram da turma</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.log_turma">
+<code class="sig-name descname">log_turma</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.log_turma" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsável pelo logging das informações iniciais da turma</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.log_vertice">
+<code class="sig-name descname">log_vertice</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.log_vertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsável pelo logging das informações iniciais do vertice</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.log_vertices_coloridos">
+<code class="sig-name descname">log_vertices_coloridos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.log_vertices_coloridos" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsável pelo logging das informações dos vertices após a coloração da turma</p>
 </dd></dl>
 
 <dl class="method">

@@ -5,7 +5,15 @@ from models.horario import Horario
 
 class Turma(UniqueCachedModel):
     """
-    Classe que representa uma turma. Ex.: 'Turma A'
+    Classe que representa uma turma
+
+    Attributes:
+        value: Nome da turma
+        vertices: Conjunto de vertices ligados à turma
+        restricoes: Conjunto de horarios de restrição da turma
+
+    Examples:
+        'Turma A'
     """
     def __init__(self, value):
         """

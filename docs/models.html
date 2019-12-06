@@ -230,8 +230,13 @@ filha em um dicionário (garantindo valor único para cada modelo)</p>
 <dt id="models.horario.Hora">
 <em class="property">class </em><code class="sig-prename descclassname">models.horario.</code><code class="sig-name descname">Hora</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#models.horario.Hora" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Base: <a class="reference internal" href="#models.db.UniqueCachedModel" title="models.db.UniqueCachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.UniqueCachedModel</span></code></a></p>
-<p>Hora.</p>
 <p>Classe que representa uma hora.</p>
+<dl class="attribute">
+<dt id="models.horario.Hora.value">
+<code class="sig-name descname">value</code><a class="headerlink" href="#models.horario.Hora.value" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>hora do dia</p>
+</dd></dl>
+
 <p class="rubric">Exemplos</p>
 <p>‘07:00’</p>
 </dd></dl>
@@ -240,8 +245,7 @@ filha em um dicionário (garantindo valor único para cada modelo)</p>
 <dt id="models.horario.Horario">
 <em class="property">class </em><code class="sig-prename descclassname">models.horario.</code><code class="sig-name descname">Horario</code><span class="sig-paren">(</span><em class="sig-param">identificador</em>, <em class="sig-param">dia</em>, <em class="sig-param">hora</em><span class="sig-paren">)</span><a class="headerlink" href="#models.horario.Horario" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Base: <a class="reference internal" href="#models.db.UniqueCachedModel" title="models.db.UniqueCachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.UniqueCachedModel</span></code></a></p>
-<p>Horario.
-Classe que representa um horário (com coloração).</p>
+<p>Classe que representa um horário (com coloração).</p>
 <p class="rubric">Exemplos</p>
 <p>Segunda 07:00</p>
 <dl class="attribute">
@@ -253,13 +257,13 @@ Classe que representa um horário (com coloração).</p>
 <dl class="attribute">
 <dt id="models.horario.Horario.dia">
 <code class="sig-name descname">dia</code><a class="headerlink" href="#models.horario.Horario.dia" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>dia</p>
+<dd><p>dia da semana</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="models.horario.Horario.hora">
 <code class="sig-name descname">hora</code><a class="headerlink" href="#models.horario.Horario.hora" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>hora</p>
+<dd><p>hora do dia</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -299,7 +303,21 @@ Classe que representa um horário (com coloração).</p>
 <dt id="models.materia.Materia">
 <em class="property">class </em><code class="sig-prename descclassname">models.materia.</code><code class="sig-name descname">Materia</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#models.materia.Materia" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Base: <a class="reference internal" href="#models.db.UniqueCachedModel" title="models.db.UniqueCachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.UniqueCachedModel</span></code></a></p>
-<p>Classe que representa uma matéria. Ex.: ‘Filosofia’</p>
+<p>Classe que representa uma matéria</p>
+<dl class="attribute">
+<dt id="models.materia.Materia.value">
+<code class="sig-name descname">value</code><a class="headerlink" href="#models.materia.Materia.value" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>nome da matéria</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.materia.Materia.vertices">
+<code class="sig-name descname">vertices</code><a class="headerlink" href="#models.materia.Materia.vertices" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>conjunto de vertices ligados à materia</p>
+</dd></dl>
+
+<p class="rubric">Exemplos</p>
+<p>‘Filosofia’</p>
 <dl class="method">
 <dt id="models.materia.Materia.add_vertice">
 <code class="sig-name descname">add_vertice</code><span class="sig-paren">(</span><em class="sig-param">value: models.vertice.Vertice</em><span class="sig-paren">)</span><a class="headerlink" href="#models.materia.Materia.add_vertice" title="Link permanente para esta definição">¶</a></dt>
@@ -320,7 +338,33 @@ Classe que representa um horário (com coloração).</p>
 <dt id="models.professor.Professor">
 <em class="property">class </em><code class="sig-prename descclassname">models.professor.</code><code class="sig-name descname">Professor</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#models.professor.Professor" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Base: <a class="reference internal" href="#models.db.UniqueCachedModel" title="models.db.UniqueCachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.UniqueCachedModel</span></code></a></p>
-<p>Classe que representa um professor. Ex.: ‘Aurélio’</p>
+<p>Classe que representa um professor</p>
+<dl class="attribute">
+<dt id="models.professor.Professor.value">
+<code class="sig-name descname">value</code><a class="headerlink" href="#models.professor.Professor.value" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Nome do professor</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.professor.Professor.vertices">
+<code class="sig-name descname">vertices</code><a class="headerlink" href="#models.professor.Professor.vertices" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Conjunto de vertices ligados ao professor</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.professor.Professor.restricoes">
+<code class="sig-name descname">restricoes</code><a class="headerlink" href="#models.professor.Professor.restricoes" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Conjunto de horarios de restrição do professor</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.professor.Professor.preferencias">
+<code class="sig-name descname">preferencias</code><a class="headerlink" href="#models.professor.Professor.preferencias" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Conjunto de horarios de preferência do professor</p>
+</dd></dl>
+
+<p class="rubric">Exemplos</p>
+<p>‘Aurélio’</p>
 <dl class="method">
 <dt id="models.professor.Professor.add_preferencia">
 <code class="sig-name descname">add_preferencia</code><span class="sig-paren">(</span><em class="sig-param">value: models.horario.Horario</em><span class="sig-paren">)</span><a class="headerlink" href="#models.professor.Professor.add_preferencia" title="Link permanente para esta definição">¶</a></dt>
@@ -363,7 +407,27 @@ Classe que representa um horário (com coloração).</p>
 <dt id="models.turma.Turma">
 <em class="property">class </em><code class="sig-prename descclassname">models.turma.</code><code class="sig-name descname">Turma</code><span class="sig-paren">(</span><em class="sig-param">value</em><span class="sig-paren">)</span><a class="headerlink" href="#models.turma.Turma" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Base: <a class="reference internal" href="#models.db.UniqueCachedModel" title="models.db.UniqueCachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.UniqueCachedModel</span></code></a></p>
-<p>Classe que representa uma turma. Ex.: ‘Turma A’</p>
+<p>Classe que representa uma turma</p>
+<dl class="attribute">
+<dt id="models.turma.Turma.value">
+<code class="sig-name descname">value</code><a class="headerlink" href="#models.turma.Turma.value" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Nome da turma</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.turma.Turma.vertices">
+<code class="sig-name descname">vertices</code><a class="headerlink" href="#models.turma.Turma.vertices" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Conjunto de vertices ligados à turma</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.turma.Turma.restricoes">
+<code class="sig-name descname">restricoes</code><a class="headerlink" href="#models.turma.Turma.restricoes" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Conjunto de horarios de restrição da turma</p>
+</dd></dl>
+
+<p class="rubric">Exemplos</p>
+<p>‘Turma A’</p>
 <dl class="method">
 <dt id="models.turma.Turma.add_restricao">
 <code class="sig-name descname">add_restricao</code><span class="sig-paren">(</span><em class="sig-param">value: models.horario.Horario</em><span class="sig-paren">)</span><a class="headerlink" href="#models.turma.Turma.add_restricao" title="Link permanente para esta definição">¶</a></dt>
@@ -404,7 +468,19 @@ Classe que representa um horário (com coloração).</p>
 <dt id="models.vertice.CopiaVertice">
 <em class="property">class </em><code class="sig-prename descclassname">models.vertice.</code><code class="sig-name descname">CopiaVertice</code><span class="sig-paren">(</span><em class="sig-param">vertice: models.vertice.Vertice</em><span class="sig-paren">)</span><a class="headerlink" href="#models.vertice.CopiaVertice" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Base: <a class="reference internal" href="#models.db.CachedModel" title="models.db.CachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.CachedModel</span></code></a></p>
-<p>Classe que representa uma copia de um vértice, contendo um vertice e um horário (cor).</p>
+<p>Classe que representa uma copia de um vértice</p>
+<dl class="attribute">
+<dt id="models.vertice.CopiaVertice.vertice">
+<code class="sig-name descname">vertice</code><a class="headerlink" href="#models.vertice.CopiaVertice.vertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Vertice original</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.vertice.CopiaVertice.horario">
+<code class="sig-name descname">horario</code><a class="headerlink" href="#models.vertice.CopiaVertice.horario" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Horario da copia (cor)</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="models.vertice.CopiaVertice.materia">
 <em class="property">property </em><code class="sig-name descname">materia</code><a class="headerlink" href="#models.vertice.CopiaVertice.materia" title="Link permanente para esta definição">¶</a></dt>
@@ -440,7 +516,37 @@ Classe que representa um horário (com coloração).</p>
 <dt id="models.vertice.Vertice">
 <em class="property">class </em><code class="sig-prename descclassname">models.vertice.</code><code class="sig-name descname">Vertice</code><span class="sig-paren">(</span><em class="sig-param">professor</em>, <em class="sig-param">turma</em>, <em class="sig-param">materia</em><span class="sig-paren">)</span><a class="headerlink" href="#models.vertice.Vertice" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Base: <a class="reference internal" href="#models.db.CachedModel" title="models.db.CachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.CachedModel</span></code></a></p>
-<p>Classe que representa um vértice, contendo um professor, uma matéria, uma turma e um horário (cor).</p>
+<p>Classe que representa um vértice</p>
+<dl class="attribute">
+<dt id="models.vertice.Vertice.professor">
+<code class="sig-name descname">professor</code><a class="headerlink" href="#models.vertice.Vertice.professor" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Professor do vertice</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.vertice.Vertice.materia">
+<code class="sig-name descname">materia</code><a class="headerlink" href="#models.vertice.Vertice.materia" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Materia do vertice</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.vertice.Vertice.turma">
+<code class="sig-name descname">turma</code><a class="headerlink" href="#models.vertice.Vertice.turma" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Turma do vertice</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.vertice.Vertice.horario">
+<code class="sig-name descname">horario</code><a class="headerlink" href="#models.vertice.Vertice.horario" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Horario do vertice (cor)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="models.vertice.Vertice.copia">
+<code class="sig-name descname">copia</code><a class="headerlink" href="#models.vertice.Vertice.copia" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Copia do vertice</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="models.vertice.Vertice.colorir">
 <code class="sig-name descname">colorir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.vertice.Vertice.colorir" title="Link permanente para esta definição">¶</a></dt>
@@ -448,8 +554,8 @@ Classe que representa um horário (com coloração).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="models.vertice.Vertice.materia">
-<em class="property">property </em><code class="sig-name descname">materia</code><a class="headerlink" href="#models.vertice.Vertice.materia" title="Link permanente para esta definição">¶</a></dt>
+<dt>
+<em class="property">property </em><code class="sig-name descname">materia</code></dt>
 <dd><p>Método para pegar a materia do vertice</p>
 <dl class="field-list simple">
 <dt class="field-odd">Retorna</dt>
@@ -459,8 +565,8 @@ Classe que representa um horário (com coloração).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="models.vertice.Vertice.professor">
-<em class="property">property </em><code class="sig-name descname">professor</code><a class="headerlink" href="#models.vertice.Vertice.professor" title="Link permanente para esta definição">¶</a></dt>
+<dt>
+<em class="property">property </em><code class="sig-name descname">professor</code></dt>
 <dd><p>Método para pegar o professor do vertice</p>
 <dl class="field-list simple">
 <dt class="field-odd">Retorna</dt>
@@ -470,8 +576,8 @@ Classe que representa um horário (com coloração).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="models.vertice.Vertice.turma">
-<em class="property">property </em><code class="sig-name descname">turma</code><a class="headerlink" href="#models.vertice.Vertice.turma" title="Link permanente para esta definição">¶</a></dt>
+<dt>
+<em class="property">property </em><code class="sig-name descname">turma</code></dt>
 <dd><p>Método para pegar a turma do vertice</p>
 <dl class="field-list simple">
 <dt class="field-odd">Retorna</dt>

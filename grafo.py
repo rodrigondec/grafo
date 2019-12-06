@@ -20,6 +20,13 @@ logger = logging.getLogger(__name__)
 class Grafo:
     """
     Classe que representa um grafo
+
+    Attributes:
+        file_path: Caminho para o arquivo excell
+        vertices: Lista de vertices pós processamento do excell
+        _cores: Conjunto de cores (Horarios)
+        _turmas: Lista de Turmas
+        context: Dicionário de contexto para algorítmo de coloração
     """
     def __init__(self, file_path):
         """
@@ -190,51 +197,20 @@ class Grafo:
         """
         self.cores_possiveis_turma = self.todas_as_cores - self.turma.restricoes
 
-        logger.info(f"Turma {self.turma} tem {len(self.turma.vertices)} vertices e {len(self.cores_possiveis_turma)} cores possíveis!")
-        string = ""
-        for cor in self.cores_possiveis_turma:
-            string += f"{cor}, "
-        logger.debug(f"Cores possiveis da turma: {string}")
+        self.log_turma()
 
         for vertice in self.turma.vertices:
             self.vertice = vertice
             self.colorir_copia_vertice()
 
-        string = ""
-        for cor in self.cores_possiveis_turma:
-            string += f"{cor}, "
-        logger.debug(f"Cores que sobraram: {string}")
-        string = ""
-        for vertice in self.turma.vertices:
-            string += f"{vertice}"
-            if vertice.copia is not None:
-                string += f"{vertice.copia.horario}"
-            string += ", "
-        logger.debug(f"Vertices: {string}")
-        logging.info(f"Vertices coloridos: "
-                     f"{len([vertice for vertice in self.turma.vertices if vertice.copia is not None and vertice.copia.horario])}")
-        logging.info(f"Vertices não coloridos: "
-                     f"{len([vertice for vertice in self.turma.vertices if vertice.copia is None])}")
-        string = ""
-        for vertice in self.turma.vertices:
-            if vertice.copia is None:
-                string += f"{vertice}, "
-        if string:
-            logger.info(f"Vertices não coloridos: {string}")
+        self.log_cores_sobrando()
+        self.log_vertices_coloridos()
 
     def colorir_copia_vertice(self):
         """
         Método responsavel por realizar a coloração da copia do vertice do context.
         """
-        string = ""
-        for cor in self.cores_possiveis_vertice:
-            string += f"{cor}, "
-        logger.debug(f"Cores possiveis do vertice: {string}")
-
-        string = ""
-        for cor in self.cores_preferiveis_vertice:
-            string += f"{cor}, "
-        logger.debug(f"Cores preferíveis do vertice: {string}")
+        self.log_vertice()
 
         if self.cores_preferiveis_vertice:
             cor_aleatoria = self.cores_preferiveis_vertice.pop()
@@ -259,6 +235,62 @@ class Grafo:
         """
         for vertice in self.vertices:
             vertice.colorir()
+
+    def log_turma(self):
+        """
+        Método responsável pelo logging das informações iniciais da turma
+        """
+        logger.info(
+            f"Turma {self.turma} tem {len(self.turma.vertices)} vertices e {len(self.cores_possiveis_turma)} cores possíveis!")
+        string = ""
+        for cor in self.cores_possiveis_turma:
+            string += f"{cor}, "
+        logger.debug(f"Cores possiveis da turma: {string}")
+
+    def log_cores_sobrando(self):
+        """
+        Método responsável pelo logging das informações das cores que sobraram da turma
+        """
+        string = ""
+        for cor in self.cores_possiveis_turma:
+            string += f"{cor}, "
+        logger.debug(f"Cores que sobraram: {string}")
+
+    def log_vertices_coloridos(self):
+        """
+        Método responsável pelo logging das informações dos vertices após a coloração da turma
+        """
+        string = ""
+        for vertice in self.turma.vertices:
+            string += f"{vertice}"
+            if vertice.copia is not None:
+                string += f"{vertice.copia.horario}"
+            string += ", "
+        logger.debug(f"Vertices: {string}")
+        logging.info(f"Vertices coloridos: "
+                     f"{len([vertice for vertice in self.turma.vertices if vertice.copia is not None and vertice.copia.horario])}")
+        logging.info(f"Vertices não coloridos: "
+                     f"{len([vertice for vertice in self.turma.vertices if vertice.copia is None])}")
+        string = ""
+        for vertice in self.turma.vertices:
+            if vertice.copia is None:
+                string += f"{vertice}, "
+        if string:
+            logger.info(f"Vertices não coloridos: {string}")
+
+    def log_vertice(self):
+        """
+        Método responsável pelo logging das informações iniciais do vertice
+        """
+        string = ""
+        for cor in self.cores_possiveis_vertice:
+            string += f"{cor}, "
+        logger.debug(f"Cores possiveis do vertice: {string}")
+
+        string = ""
+        for cor in self.cores_preferiveis_vertice:
+            string += f"{cor}, "
+        logger.debug(f"Cores preferíveis do vertice: {string}")
 
 
 if __name__ == "__main__":

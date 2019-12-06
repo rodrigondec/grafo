@@ -4,7 +4,14 @@ from models.vertice import Vertice
 
 class Materia(UniqueCachedModel):
     """
-    Classe que representa uma matéria. Ex.: 'Filosofia'
+    Classe que representa uma matéria
+
+    Attributes:
+        value: nome da matéria
+        vertices: conjunto de vertices ligados à materia
+
+    Examples:
+        'Filosofia'
     """
     def __init__(self, value):
         """

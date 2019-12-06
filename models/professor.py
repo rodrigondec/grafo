@@ -5,7 +5,16 @@ from models.horario import Horario
 
 class Professor(UniqueCachedModel):
     """
-    Classe que representa um professor. Ex.: 'Aurélio'
+    Classe que representa um professor
+
+    Attributes:
+        value: Nome do professor
+        vertices: Conjunto de vertices ligados ao professor
+        restricoes: Conjunto de horarios de restrição do professor
+        preferencias: Conjunto de horarios de preferência do professor
+
+    Examples:
+        'Aurélio'
     """
     def __init__(self, value):
         """

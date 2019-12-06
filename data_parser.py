@@ -15,8 +15,13 @@ DATA = [
 
 
 class DataParser:
-    """Essa classe é a responsável por processar as informações das planilhas
-    excell e salvar as informções em suas devidas classes.
+    """
+    Classe responsável por processar as informações das planilhas excell e salvar as
+    informções em suas devidas classes
+
+    Attributes:
+        file_path: Caminho do arquivo
+        file: Arquivo do tipo Pandas
     """
 
     DADOS = {'name': 'Dados', 'columns': ['materia', 'turma', 'professor', 'quantidade_aulas']}
@@ -32,7 +37,7 @@ class DataParser:
         Args:
             file_path: Arquivo a ser processado.
         """
-        self.name = file_path
+        self.file_path = file_path
         self.file = pandas.ExcelFile(file_path)
 
     def get_data_frame(self, sheet_options):

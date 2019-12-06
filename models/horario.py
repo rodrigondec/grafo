@@ -2,7 +2,7 @@ from models.db import UniqueCachedModel
 
 
 class Horario(UniqueCachedModel):
-    """Horario.
+    """
     Classe que representa um horário (com coloração).
 
     Examples:
@@ -10,8 +10,8 @@ class Horario(UniqueCachedModel):
 
     Attributes:
         identificador: identificador único
-        dia: dia
-        hora: hora
+        dia: dia da semana
+        hora: hora do dia
     """
 
     DIAS = [
@@ -57,9 +57,11 @@ class Horario(UniqueCachedModel):
 
 
 class Hora(UniqueCachedModel):
-    """Hora.
-
+    """
     Classe que representa uma hora.
+
+    Attributes:
+        value: hora do dia
 
     Examples:
          '07:00'

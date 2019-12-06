@@ -3,7 +3,14 @@ from models.db import CachedModel
 
 class Vertice(CachedModel):
     """
-    Classe que representa um vértice, contendo um professor, uma matéria, uma turma e um horário (cor).
+    Classe que representa um vértice
+
+    Attributes:
+        professor: Professor do vertice
+        materia: Materia do vertice
+        turma: Turma do vertice
+        horario: Horario do vertice (cor)
+        copia: Copia do vertice
     """
     def __init__(self, professor, turma, materia):
         """
@@ -105,7 +112,11 @@ class Vertice(CachedModel):
 
 class CopiaVertice(CachedModel):
     """
-    Classe que representa uma copia de um vértice, contendo um vertice e um horário (cor).
+    Classe que representa uma copia de um vértice
+
+    Attributes:
+        vertice: Vertice original
+        horario: Horario da copia (cor)
     """
     def __init__(self, vertice: Vertice):
         """
