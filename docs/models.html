@@ -303,7 +303,7 @@ Classe que representa um horário (com coloração).</p>
 <dl class="method">
 <dt id="models.materia.Materia.add_vertice">
 <code class="sig-name descname">add_vertice</code><span class="sig-paren">(</span><em class="sig-param">value: models.vertice.Vertice</em><span class="sig-paren">)</span><a class="headerlink" href="#models.materia.Materia.add_vertice" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Adiciona um vertice à lista de vertices da materia</p>
+<dd><p>Adiciona um vertice conjunto de vertices da materia</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
 <dd class="field-odd"><p><strong>value</strong> – Vertice passado</p>
@@ -324,7 +324,7 @@ Classe que representa um horário (com coloração).</p>
 <dl class="method">
 <dt id="models.professor.Professor.add_preferencia">
 <code class="sig-name descname">add_preferencia</code><span class="sig-paren">(</span><em class="sig-param">value: models.horario.Horario</em><span class="sig-paren">)</span><a class="headerlink" href="#models.professor.Professor.add_preferencia" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Adiciona um Horario de preferência à lista de preferẽncias do professor</p>
+<dd><p>Adiciona um Horario de preferência ao conjunto de preferẽncias do professor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
 <dd class="field-odd"><p><strong>value</strong> – Horario passado</p>
@@ -335,7 +335,7 @@ Classe que representa um horário (com coloração).</p>
 <dl class="method">
 <dt id="models.professor.Professor.add_restricao">
 <code class="sig-name descname">add_restricao</code><span class="sig-paren">(</span><em class="sig-param">value: models.horario.Horario</em><span class="sig-paren">)</span><a class="headerlink" href="#models.professor.Professor.add_restricao" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Adiciona um Horario de restrição à lista de restrições do professor</p>
+<dd><p>Adiciona um Horario de restrição ao conjunto de restrições do professor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
 <dd class="field-odd"><p><strong>value</strong> – Horario passado</p>
@@ -346,7 +346,7 @@ Classe que representa um horário (com coloração).</p>
 <dl class="method">
 <dt id="models.professor.Professor.add_vertice">
 <code class="sig-name descname">add_vertice</code><span class="sig-paren">(</span><em class="sig-param">value: models.vertice.Vertice</em><span class="sig-paren">)</span><a class="headerlink" href="#models.professor.Professor.add_vertice" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Adiciona um vertice à lista de vertices do professor</p>
+<dd><p>Adiciona um vertice ao conjunto de vertices do professor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
 <dd class="field-odd"><p><strong>value</strong> – Vertice passado</p>
@@ -367,7 +367,7 @@ Classe que representa um horário (com coloração).</p>
 <dl class="method">
 <dt id="models.turma.Turma.add_restricao">
 <code class="sig-name descname">add_restricao</code><span class="sig-paren">(</span><em class="sig-param">value: models.horario.Horario</em><span class="sig-paren">)</span><a class="headerlink" href="#models.turma.Turma.add_restricao" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Adiciona um Horario de restrição à lista de restrições vertices da turma</p>
+<dd><p>Adiciona um Horario de restrição ao conjunto de restrições vertices da turma</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
 <dd class="field-odd"><p><strong>value</strong> – Horario passado</p>
@@ -378,7 +378,7 @@ Classe que representa um horário (com coloração).</p>
 <dl class="method">
 <dt id="models.turma.Turma.add_vertice">
 <code class="sig-name descname">add_vertice</code><span class="sig-paren">(</span><em class="sig-param">value: models.vertice.Vertice</em><span class="sig-paren">)</span><a class="headerlink" href="#models.turma.Turma.add_vertice" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Adiciona um vertice à lista de vertices da turma</p>
+<dd><p>Adiciona um vertice ao conjunto de vertices da turma</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parâmetros</dt>
 <dd class="field-odd"><p><strong>value</strong> – Vertice passado</p>
@@ -441,6 +441,12 @@ Classe que representa um horário (com coloração).</p>
 <em class="property">class </em><code class="sig-prename descclassname">models.vertice.</code><code class="sig-name descname">Vertice</code><span class="sig-paren">(</span><em class="sig-param">professor</em>, <em class="sig-param">turma</em>, <em class="sig-param">materia</em><span class="sig-paren">)</span><a class="headerlink" href="#models.vertice.Vertice" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Base: <a class="reference internal" href="#models.db.CachedModel" title="models.db.CachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.CachedModel</span></code></a></p>
 <p>Classe que representa um vértice, contendo um professor, uma matéria, uma turma e um horário (cor).</p>
+<dl class="method">
+<dt id="models.vertice.Vertice.colorir">
+<code class="sig-name descname">colorir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.vertice.Vertice.colorir" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método que colore o vertice baseado na sua cópia.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="models.vertice.Vertice.materia">
 <em class="property">property </em><code class="sig-name descname">materia</code><a class="headerlink" href="#models.vertice.Vertice.materia" title="Link permanente para esta definição">¶</a></dt>

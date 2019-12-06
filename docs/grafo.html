@@ -159,9 +159,103 @@
 <dd><p>Base: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Classe que representa um grafo</p>
 <dl class="method">
-<dt id="grafo.Grafo.process">
-<code class="sig-name descname">process</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.process" title="Link permanente para esta definição">¶</a></dt>
+<dt id="grafo.Grafo.colorir">
+<code class="sig-name descname">colorir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.colorir" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Método responsavel por realizar a coloração do grafo.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.colorir_copia_vertice">
+<code class="sig-name descname">colorir_copia_vertice</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.colorir_copia_vertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsavel por realizar a coloração da copia do vertice do context.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.colorir_turma">
+<code class="sig-name descname">colorir_turma</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.colorir_turma" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsavel por realizar a coloração da turma do context.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.colorir_vertices_originais">
+<code class="sig-name descname">colorir_vertices_originais</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.colorir_vertices_originais" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsavel por realizar a coloração dos vertices do grafo baseado em suas cópias</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.cores_possiveis_turma">
+<em class="property">property </em><code class="sig-name descname">cores_possiveis_turma</code><a class="headerlink" href="#grafo.Grafo.cores_possiveis_turma" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método de acesso para o conjunto de cores possíveis da turma do context
+Returns: conjunto de cores possíveis para a turma</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.cores_possiveis_vertice">
+<em class="property">property </em><code class="sig-name descname">cores_possiveis_vertice</code><a class="headerlink" href="#grafo.Grafo.cores_possiveis_vertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método de acesso para o conjunto de cores possíveis da vertice do context
+Returns: conjunto de cores possíveis para o vertice</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.cores_preferiveis_vertice">
+<em class="property">property </em><code class="sig-name descname">cores_preferiveis_vertice</code><a class="headerlink" href="#grafo.Grafo.cores_preferiveis_vertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método de acesso para o conjunto de cores preferíveis da vertice do context
+Returns: conjunto de cores preferíveis para o vertice</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.preferencias_atendidas">
+<em class="property">property </em><code class="sig-name descname">preferencias_atendidas</code><a class="headerlink" href="#grafo.Grafo.preferencias_atendidas" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método que calcula o total de preferências atendias na coloração dos vértices
+Returns: (int) total de preferências atendidas</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.preferencias_sobre_total">
+<em class="property">property </em><code class="sig-name descname">preferencias_sobre_total</code><a class="headerlink" href="#grafo.Grafo.preferencias_sobre_total" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método que calcula a proporção de preferẽncias atendidas por preferências totais
+Returns: (float) porcentagem da proporção</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.swap">
+<code class="sig-name descname">swap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.swap" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsavel por realizar o swap para remover conflitos e totalizar a coloração dos vertices do grafo</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.todas_as_cores">
+<em class="property">property </em><code class="sig-name descname">todas_as_cores</code><a class="headerlink" href="#grafo.Grafo.todas_as_cores" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método de acesso para lista de cores
+Returns: lista de cores</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.total_preferencias">
+<em class="property">property </em><code class="sig-name descname">total_preferencias</code><a class="headerlink" href="#grafo.Grafo.total_preferencias" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método que calcula o total de preferências dos professores
+Returns: (int) total de preferências</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.turma">
+<em class="property">property </em><code class="sig-name descname">turma</code><a class="headerlink" href="#grafo.Grafo.turma" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método de acesso para o turma do context
+Returns: vertice</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.turmas">
+<em class="property">property </em><code class="sig-name descname">turmas</code><a class="headerlink" href="#grafo.Grafo.turmas" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método de acesso para turmas
+Returns: lista de turmas</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.vertice">
+<em class="property">property </em><code class="sig-name descname">vertice</code><a class="headerlink" href="#grafo.Grafo.vertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método de acesso para o vertice do context
+Returns: vertice</p>
 </dd></dl>
 
 </dd></dl>
