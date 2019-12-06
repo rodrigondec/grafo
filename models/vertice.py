@@ -18,6 +18,7 @@ class Vertice(CachedModel):
         self.turma = turma
         self.materia = materia
         self.horario = None
+        self.copia = None
 
     def __str__(self):
         """
@@ -104,6 +105,7 @@ class CopiaVertice(CachedModel):
         Inicializa os valores da Cópia de Vertice criada
         :param vertice: Vertice passado
         """
+        vertice.copia = self
         self.vertice = vertice
         self.horario = None
 
