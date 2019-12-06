@@ -33,7 +33,7 @@ class Professor(UniqueCachedModel):
 
     def add_vertice(self, value: Vertice):
         """
-        Adiciona um vertice à lista de vertices do professor
+        Adiciona um vertice ao conjunto de vertices do professor
 
         Args:
             value: Vertice passado
@@ -42,7 +42,7 @@ class Professor(UniqueCachedModel):
 
     def add_restricao(self, value: Horario):
         """
-        Adiciona um Horario de restrição à lista de restrições do professor
+        Adiciona um Horario de restrição ao conjunto de restrições do professor
 
         Args:
             value: Horario passado
@@ -51,7 +51,7 @@ class Professor(UniqueCachedModel):
 
     def add_preferencia(self, value: Horario):
         """
-        Adiciona um Horario de preferência à lista de preferẽncias do professor
+        Adiciona um Horario de preferência ao conjunto de preferẽncias do professor
 
         Args:
             value: Horario passado

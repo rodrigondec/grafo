@@ -96,6 +96,9 @@ class Vertice(CachedModel):
         value.add_vertice(self)
 
     def colorir(self):
+        """
+        Método que colore o vertice baseado na sua cópia.
+        """
         if self.copia is not None:
             self.horario = self.copia.horario
 

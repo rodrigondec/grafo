@@ -31,7 +31,7 @@ class Turma(UniqueCachedModel):
 
     def add_vertice(self, value: Vertice):
         """
-        Adiciona um vertice à lista de vertices da turma
+        Adiciona um vertice ao conjunto de vertices da turma
 
         Args:
             value: Vertice passado
@@ -40,7 +40,7 @@ class Turma(UniqueCachedModel):
 
     def add_restricao(self, value: Horario):
         """
-        Adiciona um Horario de restrição à lista de restrições vertices da turma
+        Adiciona um Horario de restrição ao conjunto de restrições vertices da turma
 
         Args:
             value: Horario passado

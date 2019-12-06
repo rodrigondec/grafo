@@ -60,6 +60,10 @@ class Grafo:
 
     @property
     def total_preferencias(self):
+        """
+        Método que calcula o total de preferências dos professores
+        Returns: (int) total de preferências
+        """
         total = 0
         for professor in Professor.instances.values():
             total += len(professor.preferencias)
@@ -67,6 +71,10 @@ class Grafo:
 
     @property
     def preferencias_atendidas(self):
+        """
+        Método que calcula o total de preferências atendias na coloração dos vértices
+        Returns: (int) total de preferências atendidas
+        """
         total = 0
         for vertice in self.vertices:
             if vertice.horario is not None and vertice.horario in vertice.professor.preferencias:
@@ -75,14 +83,26 @@ class Grafo:
 
     @property
     def preferencias_sobre_total(self):
+        """
+        Método que calcula a proporção de preferẽncias atendidas por preferências totais
+        Returns: (float) porcentagem da proporção
+        """
         return self.preferencias_atendidas/self.total_preferencias
 
     @property
     def turmas(self):
+        """
+        Método de acesso para turmas
+        Returns: lista de turmas
+        """
         return self._turmas
 
     @property
     def turma(self) -> Turma:
+        """
+        Método de acesso para o turma do context
+        Returns: vertice
+        """
         t: Optional[Turma] = self.context.get("turma")
         if t is None:
             raise ValueError("Turma é nula!")
@@ -90,14 +110,25 @@ class Grafo:
 
     @turma.setter
     def turma(self, turma):
+        """
+        Método de atribuição da turma no context
+        """
         self.context["turma"] = turma
 
     @property
     def todas_as_cores(self):
+        """
+        Método de acesso para lista de cores
+        Returns: lista de cores
+        """
         return self._cores
 
     @property
     def vertice(self) -> Vertice:
+        """
+        Método de acesso para o vertice do context
+        Returns: vertice
+        """
         v: Optional[Vertice] = self.context.get("vertice")
         if v is None:
             raise ValueError("Vertice é nulo!")
@@ -105,22 +136,40 @@ class Grafo:
 
     @vertice.setter
     def vertice(self, vertice):
+        """
+        Método de atribuição do vertice no context
+        """
         self.context["vertice"] = vertice
 
     @property
     def cores_possiveis_turma(self):
+        """
+        Método de acesso para o conjunto de cores possíveis da turma do context
+        Returns: conjunto de cores possíveis para a turma
+        """
         return self.context.get("cores_possiveis_turma")
 
     @cores_possiveis_turma.setter
     def cores_possiveis_turma(self, cores_possiveis_turma):
+        """
+        Método de atribuição do conjunto de cores possíveis da turma no context
+        """
         self.context["cores_possiveis_turma"] = cores_possiveis_turma
 
     @property
     def cores_possiveis_vertice(self):
+        """
+        Método de acesso para o conjunto de cores possíveis da vertice do context
+        Returns: conjunto de cores possíveis para o vertice
+        """
         return self.cores_possiveis_turma - self.vertice.professor.restricoes
 
     @property
     def cores_preferiveis_vertice(self):
+        """
+        Método de acesso para o conjunto de cores preferíveis da vertice do context
+        Returns: conjunto de cores preferíveis para o vertice
+        """
         return self.cores_possiveis_turma.intersection(self.vertice.professor.preferencias)
 
     def colorir(self):
@@ -131,9 +180,14 @@ class Grafo:
             self.turma = turma
             self.colorir_turma()
 
+        self.swap()
+
         self.colorir_vertices_originais()
 
     def colorir_turma(self):
+        """
+        Método responsavel por realizar a coloração da turma do context.
+        """
         self.cores_possiveis_turma = self.todas_as_cores - self.turma.restricoes
 
         logger.info(f"Turma {self.turma} tem {len(self.turma.vertices)} vertices e {len(self.cores_possiveis_turma)} cores possíveis!")
@@ -169,6 +223,9 @@ class Grafo:
             logger.info(f"Vertices não coloridos: {string}")
 
     def colorir_copia_vertice(self):
+        """
+        Método responsavel por realizar a coloração da copia do vertice do context.
+        """
         string = ""
         for cor in self.cores_possiveis_vertice:
             string += f"{cor}, "
@@ -190,7 +247,16 @@ class Grafo:
         copia_vertice = CopiaVertice(self.vertice)
         copia_vertice.horario = cor_aleatoria
 
+    def swap(self):
+        """
+        Método responsavel por realizar o swap para remover conflitos e totalizar a coloração dos vertices do grafo
+        """
+        pass
+
     def colorir_vertices_originais(self):
+        """
+        Método responsavel por realizar a coloração dos vertices do grafo baseado em suas cópias
+        """
         for vertice in self.vertices:
             vertice.colorir()
 

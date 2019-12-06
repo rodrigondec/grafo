@@ -28,7 +28,7 @@ class Materia(UniqueCachedModel):
 
     def add_vertice(self, value: Vertice):
         """
-        Adiciona um vertice à lista de vertices da materia
+        Adiciona um vertice conjunto de vertices da materia
 
         Args:
             value: Vertice passado
