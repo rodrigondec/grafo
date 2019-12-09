@@ -54,3 +54,9 @@ class Turma(UniqueCachedModel):
             value: Horario passado
         """
         self.restricoes.add(value)
+
+    def tem_vertice_descolorido(self):
+        for vertice in self.vertices:
+            if not vertice.colorido:
+                return True
+        return False
