@@ -240,6 +240,18 @@ Returns: conjunto de cores preferíveis para o vertice</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="grafo.Grafo.log_swap_vertice">
+<em class="property">static </em><code class="sig-name descname">log_swap_vertice</code><span class="sig-paren">(</span><em class="sig-param">vertice_sofrendo_swap</em>, <em class="sig-param">restricoes_de_swap</em>, <em class="sig-param">cores_possiveis_de_swap</em>, <em class="sig-param">vertices_possiveis_de_swap</em><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.log_swap_vertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsável pelo logging das informações iniciais de swap</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.log_swapped_vertice">
+<em class="property">static </em><code class="sig-name descname">log_swapped_vertice</code><span class="sig-paren">(</span><em class="sig-param">vertice_sofrendo_swap</em>, <em class="sig-param">vertice_escolhido</em><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.log_swapped_vertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsável pelo logging das informações do swap realizado</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="grafo.Grafo.log_turma">
 <code class="sig-name descname">log_turma</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.log_turma" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Método responsável pelo logging das informações iniciais da turma</p>
@@ -272,9 +284,15 @@ Returns: (float) porcentagem da proporção</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="grafo.Grafo.swap">
-<code class="sig-name descname">swap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.swap" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Método responsavel por realizar o swap para remover conflitos e totalizar a coloração dos vertices do grafo</p>
+<dt id="grafo.Grafo.swap_turma">
+<code class="sig-name descname">swap_turma</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.swap_turma" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsavel por realizar o swap da dos vertices não coloridos da turma</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="grafo.Grafo.swap_vertice">
+<code class="sig-name descname">swap_vertice</code><span class="sig-paren">(</span><em class="sig-param">vertice_sofrendo_swap</em>, <em class="sig-param">call_number</em><span class="sig-paren">)</span><a class="headerlink" href="#grafo.Grafo.swap_vertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsavel por realizar o swap de um vertice não colorido</p>
 </dd></dl>
 
 <dl class="method">

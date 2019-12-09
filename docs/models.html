@@ -450,6 +450,11 @@ filha em um dicionário (garantindo valor único para cada modelo)</p>
 </dl>
 </dd></dl>
 
+<dl class="method">
+<dt id="models.turma.Turma.tem_vertice_descolorido">
+<code class="sig-name descname">tem_vertice_descolorido</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.turma.Turma.tem_vertice_descolorido" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
@@ -466,8 +471,8 @@ filha em um dicionário (garantindo valor único para cada modelo)</p>
 <span id="models-vertice-module"></span><h2>models.vertice module<a class="headerlink" href="#module-models.vertice" title="Link permanente para este título">¶</a></h2>
 <dl class="class">
 <dt id="models.vertice.CopiaVertice">
-<em class="property">class </em><code class="sig-prename descclassname">models.vertice.</code><code class="sig-name descname">CopiaVertice</code><span class="sig-paren">(</span><em class="sig-param">vertice: models.vertice.Vertice</em><span class="sig-paren">)</span><a class="headerlink" href="#models.vertice.CopiaVertice" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Base: <a class="reference internal" href="#models.db.CachedModel" title="models.db.CachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.CachedModel</span></code></a></p>
+<em class="property">class </em><code class="sig-prename descclassname">models.vertice.</code><code class="sig-name descname">CopiaVertice</code><span class="sig-paren">(</span><em class="sig-param">vertice: models.vertice.Vertice</em>, <em class="sig-param">_id=''</em><span class="sig-paren">)</span><a class="headerlink" href="#models.vertice.CopiaVertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <a class="reference internal" href="#models.db.UniqueCachedModel" title="models.db.UniqueCachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.UniqueCachedModel</span></code></a></p>
 <p>Classe que representa uma copia de um vértice</p>
 <dl class="attribute">
 <dt id="models.vertice.CopiaVertice.vertice">
@@ -548,10 +553,20 @@ filha em um dicionário (garantindo valor único para cada modelo)</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="models.vertice.Vertice.colorido">
+<em class="property">property </em><code class="sig-name descname">colorido</code><a class="headerlink" href="#models.vertice.Vertice.colorido" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="models.vertice.Vertice.colorir">
 <code class="sig-name descname">colorir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.vertice.Vertice.colorir" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Método que colore o vertice baseado na sua cópia.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="models.vertice.Vertice.id">
+<em class="property">property </em><code class="sig-name descname">id</code><a class="headerlink" href="#models.vertice.Vertice.id" title="Link permanente para esta definição">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt>
