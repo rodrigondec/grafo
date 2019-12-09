@@ -1,4 +1,4 @@
-from models.db import CachedModel
+from models.db import CachedModel, UniqueCachedModel
 
 
 class Vertice(CachedModel):
@@ -34,7 +34,14 @@ class Vertice(CachedModel):
         Returns:
             string de representação
         """
-        return f'{self.professor} {self.turma} {self.materia} {self.horario}'
+        string = f'{self.professor} {self.turma} {self.materia} {self.horario}'
+        if self.colorido:
+            string += f' {self.copia.horario}'
+        return string
+
+    @property
+    def id(self):
+        return f'{self.professor} {self.turma} {self.materia}'
 
     @property
     def professor(self):
@@ -109,8 +116,12 @@ class Vertice(CachedModel):
         if self.copia is not None:
             self.horario = self.copia.horario
 
+    @property
+    def colorido(self):
+        return self.copia is not None and self.copia.horario is not None
 
-class CopiaVertice(CachedModel):
+
+class CopiaVertice(UniqueCachedModel):
     """
     Classe que representa uma copia de um vértice
 
@@ -118,7 +129,7 @@ class CopiaVertice(CachedModel):
         vertice: Vertice original
         horario: Horario da copia (cor)
     """
-    def __init__(self, vertice: Vertice):
+    def __init__(self, vertice: Vertice, _id=''):
         """
         Inicializa os valores da Cópia de Vertice criada
         :param vertice: Vertice passado
