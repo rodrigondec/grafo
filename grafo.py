@@ -187,7 +187,10 @@ class Grafo:
             self.turma = turma
             self.colorir_turma()
 
-        self.swap()
+        for turma in self.turmas:
+            if turma.tem_vertice_descolorido():
+                self.turma = turma
+                self.swap_turma()
 
         self.colorir_vertices_originais()
 
@@ -220,14 +223,63 @@ class Grafo:
             return
         self.cores_possiveis_turma.remove(cor_aleatoria)
 
-        copia_vertice = CopiaVertice(self.vertice)
+        copia_vertice = CopiaVertice(self.vertice, _id=self.vertice.id)
         copia_vertice.horario = cor_aleatoria
 
-    def swap(self):
+    def swap_turma(self):
         """
-        Método responsavel por realizar o swap para remover conflitos e totalizar a coloração dos vertices do grafo
+        Método responsavel por realizar o swap da dos vertices não coloridos da turma
         """
-        pass
+        self.cores_possiveis_turma = self.todas_as_cores - self.turma.restricoes
+
+        vertices_nao_coloridos = {vertice for vertice in self.turma.vertices if not vertice.colorido}
+
+        for vertice_nao_colorido in vertices_nao_coloridos:
+            self.swap_vertice(vertice_nao_colorido, call_number=1)
+
+    def swap_vertice(self, vertice_sofrendo_swap, call_number):
+        """
+        Método responsavel por realizar o swap de um vertice não colorido
+        """
+        if vertice_sofrendo_swap.copia is None:
+            CopiaVertice(vertice_sofrendo_swap, _id=vertice_sofrendo_swap.id)
+
+        restricoes_de_swap = vertice_sofrendo_swap.professor.restricoes | vertice_sofrendo_swap.turma.restricoes
+
+        cores_possiveis_de_swap = self.cores_possiveis_turma - restricoes_de_swap
+
+        vertices_coloridos = {vertice for vertice in self.turma.vertices if vertice.colorido}
+        cores_utilizadas = {vertice.copia.horario for vertice in vertices_coloridos}
+
+        vertices_possiveis_de_swap = {vertice for vertice in vertices_coloridos
+                                      if vertice.copia.horario in cores_possiveis_de_swap}
+
+        cores_que_sobraram = self.cores_possiveis_turma - cores_utilizadas
+
+        self.log_swap_vertice(vertice_sofrendo_swap, restricoes_de_swap,
+                              cores_possiveis_de_swap, vertices_possiveis_de_swap)
+
+        vertice_escolhido = None
+
+        if cores_que_sobraram:
+            if vertices_possiveis_de_swap:
+                for vertice_colorido in vertices_possiveis_de_swap:
+                    if (vertice_colorido.copia.horario not in restricoes_de_swap and
+                            cores_que_sobraram - (vertice_colorido.professor.restricoes |
+                                                  vertice_colorido.turma.restricoes)):
+                        vertice_sofrendo_swap.copia.horario = vertice_colorido.copia.horario
+                        vertice_colorido.copia.horario = cores_que_sobraram.pop()
+                        vertice_escolhido = vertice_colorido
+                        break
+            elif True:
+                # @TODO Caso tenha vertice sobrando, e não tenha vertices possíveis de swap:
+                # é preciso escolher um vertice e torná-lo um vertice possível de swap
+                # através de um swap. Seria feito com recursão desse método com limitação de chamadas
+                pass
+
+        self.log_swapped_vertice(vertice_sofrendo_swap, vertice_escolhido)
+
+        return vertice_sofrendo_swap if vertice_sofrendo_swap.colorido else None
 
     def colorir_vertices_originais(self):
         """
@@ -254,7 +306,7 @@ class Grafo:
         string = ""
         for cor in self.cores_possiveis_turma:
             string += f"{cor}, "
-        logger.debug(f"Cores que sobraram: {string}")
+        logger.info(f"Cores que sobraram: {string}")
 
     def log_vertices_coloridos(self):
         """
@@ -268,12 +320,12 @@ class Grafo:
             string += ", "
         logger.debug(f"Vertices: {string}")
         logging.info(f"Vertices coloridos: "
-                     f"{len([vertice for vertice in self.turma.vertices if vertice.copia is not None and vertice.copia.horario])}")
+                     f"{len([vertice for vertice in self.turma.vertices if vertice.colorido])}")
         logging.info(f"Vertices não coloridos: "
-                     f"{len([vertice for vertice in self.turma.vertices if vertice.copia is None])}")
+                     f"{len([vertice for vertice in self.turma.vertices if not vertice.colorido])}")
         string = ""
         for vertice in self.turma.vertices:
-            if vertice.copia is None:
+            if not vertice.colorido:
                 string += f"{vertice}, "
         if string:
             logger.info(f"Vertices não coloridos: {string}")
@@ -291,6 +343,36 @@ class Grafo:
         for cor in self.cores_preferiveis_vertice:
             string += f"{cor}, "
         logger.debug(f"Cores preferíveis do vertice: {string}")
+
+    @staticmethod
+    def log_swap_vertice(vertice_sofrendo_swap, restricoes_de_swap,
+                         cores_possiveis_de_swap, vertices_possiveis_de_swap):
+        """
+        Método responsável pelo logging das informações iniciais de swap
+        """
+        logger.info(f'Swap vertice : {vertice_sofrendo_swap}')
+        string = ""
+        for cor in restricoes_de_swap:
+            string += f"{cor}, "
+        logger.info(f'Restricoes de swap: {string}')
+        string = ""
+        for cor in cores_possiveis_de_swap:
+            string += f"{cor}, "
+        logger.info(f'Cores possiveis de swap: {string}')
+        string = ""
+        for vertice in vertices_possiveis_de_swap:
+            string += f"{vertice}"
+            if vertice.copia is not None:
+                string += f"{vertice.copia.horario}"
+            string += ", "
+        logger.debug(f"Vertices possiveis de swap: {string}")
+
+    @staticmethod
+    def log_swapped_vertice(vertice_sofrendo_swap, vertice_escolhido):
+        """
+        Método responsável pelo logging das informações do swap realizado
+        """
+        logger.info(f'Vertice {vertice_sofrendo_swap} sofreu swap com {vertice_escolhido}')
 
 
 if __name__ == "__main__":
