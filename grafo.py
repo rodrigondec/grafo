@@ -67,13 +67,10 @@ class Grafo:
     @property
     def total_preferencias(self):
         """
-        Método que calcula o total de preferências dos professores
-        Returns: (int) total de preferências
+        Método que calcula o total de vertices
+        Returns: (int) total de vertices
         """
-        total = 0
-        for professor in Professor.instances.values():
-            total += len(professor.preferencias)
-        return total
+        return len(self.vertices)
 
     @property
     def preferencias_atendidas(self):
@@ -83,7 +80,7 @@ class Grafo:
         """
         total = 0
         for vertice in self.vertices:
-            if vertice.horario is not None and vertice.horario in vertice.professor.preferencias:
+            if vertice.colorido and vertice.horario in vertice.professor.preferencias:
                 total += 1
         return total
 
