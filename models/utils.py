@@ -15,4 +15,4 @@ def clean_db():
     Hora._instances = {}
     Horario._instances = {}
     Vertice._instances = []
-    CopiaVertice._instances = {}
+    CopiaVertice._instances = []

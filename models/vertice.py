@@ -1,4 +1,4 @@
-from models.db import CachedModel, UniqueCachedModel
+from models.db import CachedModel
 
 
 class Vertice(CachedModel):
@@ -118,10 +118,16 @@ class Vertice(CachedModel):
 
     @property
     def colorido(self):
+        """
+        Propriedade de verificação se o vertice foi colorido ou não
+
+        Returns:
+            (boolean) se o vertice possui cor ou não
+        """
         return self.copia is not None and self.copia.horario is not None
 
 
-class CopiaVertice(UniqueCachedModel):
+class CopiaVertice(CachedModel):
     """
     Classe que representa uma copia de um vértice
 
@@ -129,7 +135,7 @@ class CopiaVertice(UniqueCachedModel):
         vertice: Vertice original
         horario: Horario da copia (cor)
     """
-    def __init__(self, vertice: Vertice, _id=''):
+    def __init__(self, vertice: Vertice):
         """
         Inicializa os valores da Cópia de Vertice criada
         :param vertice: Vertice passado

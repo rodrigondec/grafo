@@ -453,7 +453,9 @@ filha em um dicionário (garantindo valor único para cada modelo)</p>
 <dl class="method">
 <dt id="models.turma.Turma.tem_vertice_descolorido">
 <code class="sig-name descname">tem_vertice_descolorido</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#models.turma.Turma.tem_vertice_descolorido" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Método responsável por realizar a verificação se a turma tem algum vertice descolorido
+:returns: (boolean) se a turma tem ou n vertice descolorido</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -471,8 +473,8 @@ filha em um dicionário (garantindo valor único para cada modelo)</p>
 <span id="models-vertice-module"></span><h2>models.vertice module<a class="headerlink" href="#module-models.vertice" title="Link permanente para este título">¶</a></h2>
 <dl class="class">
 <dt id="models.vertice.CopiaVertice">
-<em class="property">class </em><code class="sig-prename descclassname">models.vertice.</code><code class="sig-name descname">CopiaVertice</code><span class="sig-paren">(</span><em class="sig-param">vertice: models.vertice.Vertice</em>, <em class="sig-param">_id=''</em><span class="sig-paren">)</span><a class="headerlink" href="#models.vertice.CopiaVertice" title="Link permanente para esta definição">¶</a></dt>
-<dd><p>Base: <a class="reference internal" href="#models.db.UniqueCachedModel" title="models.db.UniqueCachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.UniqueCachedModel</span></code></a></p>
+<em class="property">class </em><code class="sig-prename descclassname">models.vertice.</code><code class="sig-name descname">CopiaVertice</code><span class="sig-paren">(</span><em class="sig-param">vertice: models.vertice.Vertice</em><span class="sig-paren">)</span><a class="headerlink" href="#models.vertice.CopiaVertice" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Base: <a class="reference internal" href="#models.db.CachedModel" title="models.db.CachedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">models.db.CachedModel</span></code></a></p>
 <p>Classe que representa uma copia de um vértice</p>
 <dl class="attribute">
 <dt id="models.vertice.CopiaVertice.vertice">
@@ -555,7 +557,13 @@ filha em um dicionário (garantindo valor único para cada modelo)</p>
 <dl class="method">
 <dt id="models.vertice.Vertice.colorido">
 <em class="property">property </em><code class="sig-name descname">colorido</code><a class="headerlink" href="#models.vertice.Vertice.colorido" title="Link permanente para esta definição">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Propriedade de verificação se o vertice foi colorido ou não</p>
+<dl class="field-list simple">
+<dt class="field-odd">Retorna</dt>
+<dd class="field-odd"><p>(boolean) se o vertice possui cor ou não</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="models.vertice.Vertice.colorir">

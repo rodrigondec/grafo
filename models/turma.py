@@ -56,6 +56,11 @@ class Turma(UniqueCachedModel):
         self.restricoes.add(value)
 
     def tem_vertice_descolorido(self):
+        """
+        Método responsável por realizar a verificação se a turma tem algum vertice descolorido
+        Returns:
+            (boolean) se a turma tem ou n vertice descolorido
+        """
         for vertice in self.vertices:
             if not vertice.colorido:
                 return True

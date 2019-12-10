@@ -223,7 +223,7 @@ class Grafo:
             return
         self.cores_possiveis_turma.remove(cor_aleatoria)
 
-        copia_vertice = CopiaVertice(self.vertice, _id=self.vertice.id)
+        copia_vertice = CopiaVertice(self.vertice)
         copia_vertice.horario = cor_aleatoria
 
     def swap_turma(self):
@@ -242,7 +242,7 @@ class Grafo:
         Método responsavel por realizar o swap de um vertice não colorido
         """
         if vertice_sofrendo_swap.copia is None:
-            CopiaVertice(vertice_sofrendo_swap, _id=vertice_sofrendo_swap.id)
+            CopiaVertice(vertice_sofrendo_swap)
 
         restricoes_de_swap = vertice_sofrendo_swap.professor.restricoes | vertice_sofrendo_swap.turma.restricoes
 
