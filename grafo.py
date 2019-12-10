@@ -65,7 +65,7 @@ class Grafo:
         return string
 
     @property
-    def total_preferencias(self):
+    def total_vertices(self):
         """
         Método que calcula o total de vertices
         Returns: (int) total de vertices
@@ -90,7 +90,7 @@ class Grafo:
         Método que calcula a proporção de preferẽncias atendidas por preferências totais
         Returns: (float) porcentagem da proporção
         """
-        return self.preferencias_atendidas/self.total_preferencias
+        return self.preferencias_atendidas/self.total_vertices
 
     @property
     def turmas(self):
