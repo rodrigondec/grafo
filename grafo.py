@@ -1,6 +1,5 @@
-import copy
 import logging
-from typing import Set, Optional, Any
+from typing import Optional
 
 from data_parser import parse, DATA
 from models.horario import Horario
@@ -177,7 +176,7 @@ class Grafo:
         Método de acesso para o conjunto de cores preferíveis da vertice do context
         Returns: conjunto de cores preferíveis para o vertice
         """
-        return self.cores_possiveis_turma.intersection(self.vertice.professor.preferencias)
+        return self.cores_possiveis_turma & self.vertice.professor.preferencias
 
     def colorir(self):
         """
@@ -264,7 +263,7 @@ class Grafo:
         if cores_que_sobraram:
             if vertices_possiveis_de_swap:
                 for vertice_colorido in vertices_possiveis_de_swap:
-                    if (vertice_colorido.copia.horario not in restricoes_de_swap and
+                    if (vertice_colorido.copia.horario in cores_possiveis_de_swap and
                             cores_que_sobraram - (vertice_colorido.professor.restricoes |
                                                   vertice_colorido.turma.restricoes)):
                         vertice_sofrendo_swap.copia.horario = vertice_colorido.copia.horario
